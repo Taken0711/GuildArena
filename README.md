@@ -3,4 +3,4 @@
 ## TODO
 
 ### UI
-* Make team list component
+* Remove all hard-codded size
