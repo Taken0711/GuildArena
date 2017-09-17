@@ -1,0 +1,9 @@
+<h2 >Let's fight ! {{currentFight.disclaimer()}}</h2>
+<md-grid-list cols="2" rowHeight="500px">
+  <md-grid-tile>
+    <app-team-list [player]="currentFight.player1"></app-team-list>
+  </md-grid-tile>
+  <md-grid-tile>
+    <app-team-list [player]="currentFight.player2"></app-team-list>
+  </md-grid-tile>
+</md-grid-list>

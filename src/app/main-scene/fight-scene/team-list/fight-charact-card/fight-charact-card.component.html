@@ -1,0 +1,13 @@
+<md-card class="example-card">
+  <md-card-header>
+    <!--<div md-card-avatar class="example-header-image"></div>-->
+    <md-card-title>{{character.name}}</md-card-title>
+    <md-card-subtitle>{{character.clazz}}</md-card-subtitle>
+  </md-card-header>
+  <md-progress-bar
+      [color]="primary"
+      [mode]="progress"
+      [value]="character.hp/character.maxHp">
+  </md-progress-bar>
+</md-card>
+

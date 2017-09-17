@@ -1,0 +1,32 @@
+<md-list class="team-list">
+  <h3 md-subheader>{{player.name}}</h3>
+  <md-list-item *ngFor="let character of player.team">
+    <!--<app-fight-charact-card [character]="character"></app-fight-charact-card>-->
+    <img mdListAvatar src="../../../../assets/img/character/default.png" class="character-avatar">
+
+    <h4 md-line>{{character.name}}</h4>
+    <p md-line>{{character.clazz}}</p>
+    <md-grid-list cols="1" class="stat-list" rowHeight="20px">
+      <md-grid-tile>
+        <md-progress-bar
+            class="stat-bar"
+            [color]="primary"
+            [mode]="progress"
+            [value]="100 * (character.hp/character.maxHp)">
+        </md-progress-bar>
+        <label>HP</label>
+      </md-grid-tile>
+      <md-grid-tile>
+        <md-progress-bar
+            class="stat-bar"
+            [color]="primary"
+            [mode]="progress"
+            [value]="66">
+        </md-progress-bar>
+        <label>SPD</label>
+      </md-grid-tile>
+    </md-grid-list>
+
+  </md-list-item>
+</md-list>
+

@@ -1,0 +1,25 @@
+.team-list {
+  width: 400px;
+}
+
+.character-avatar {
+  border: #373737 solid 1px;
+}
+
+
+.stat-list {
+  width: 200px;
+}
+
+.stat-list >
+
+/*
+.stat-list > .mat-list-item {
+  height: 25px !important;
+}
+*/
+.stat-bar {
+  width: 50%;
+  text-align: left;
+  align-content: flex-start;
+}
