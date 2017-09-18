@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CharacterModel} from "../../../../../shared/models/CharacterModel";
+import {CharacterModel} from '../../../../../shared/models/CharacterModel';
 
 @Component({
   selector: 'app-fight-charact-card',

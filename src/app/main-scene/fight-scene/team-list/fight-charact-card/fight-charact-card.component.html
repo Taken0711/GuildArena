@@ -1,13 +1,35 @@
-<md-card class="example-card">
-  <md-card-header>
-    <!--<div md-card-avatar class="example-header-image"></div>-->
-    <md-card-title>{{character.name}}</md-card-title>
-    <md-card-subtitle>{{character.clazz}}</md-card-subtitle>
-  </md-card-header>
-  <md-progress-bar
-      [color]="primary"
-      [mode]="progress"
-      [value]="character.hp/character.maxHp">
-  </md-progress-bar>
-</md-card>
-
+<div class="mat-list-item-content no-padding no-margin">
+  <img mdListAvatar src="../../../../../assets/img/character/default.png" class="character-avatar">
+  <md-grid-list cols="2" rowHeight="fit" class="character-list">
+    <md-grid-tile>
+      <md-list class="no-padding no-margin">
+        <md-list-item class="no-padding no-margin">
+          <h4 md-line>{{character.name}}</h4>
+          <p md-line>{{character.clazz}}</p>
+        </md-list-item>
+      </md-list>
+    </md-grid-tile>
+    <md-grid-tile>
+      <md-grid-list cols="1" class="stat-list" rowHeight="20px">
+        <md-grid-tile>
+          <md-progress-bar
+            class="stat-bar"
+            [color]="primary"
+            [mode]="progress"
+            [value]="100 * (character.hp/character.maxHp)">
+          </md-progress-bar>
+          <label class="stat-label">HP&nbsp;&nbsp;</label>
+        </md-grid-tile>
+        <md-grid-tile>
+          <md-progress-bar
+            class="stat-bar"
+            [color]="primary"
+            [mode]="progress"
+            [value]="66">
+          </md-progress-bar>
+          <label class="stat-label">SPD</label>
+        </md-grid-tile>
+      </md-grid-list>
+    </md-grid-tile>
+  </md-grid-list>
+</div>

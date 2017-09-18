@@ -8,3 +8,11 @@
 .no-padding {
   padding: 0 0 0 0 !important;
 }
+
+.max-width {
+  width: 100%;
+}
+
+.max-height {
+  height: 100%;
+}

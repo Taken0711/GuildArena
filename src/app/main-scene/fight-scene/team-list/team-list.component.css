@@ -1,29 +1,8 @@
 .team-list {
   width: 400px;
-}
-
-.character-avatar {
-  border: #373737 solid 1px;
-}
-
-
-.stat-list {
-  width: 200px;
-}
-
-/*
-.stat-list > .mat-list-item {
-  height: 25px !important;
-}
-*/
-.stat-bar {
-  height: 10px;
+  height: 100%;
 }
 
 .team-list /deep/ figure {
   justify-content: flex-start !important;  /*horizontal alignment*/
-}
-
-.stat-label {
-  margin-left: 5px;
 }

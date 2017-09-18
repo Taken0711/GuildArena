@@ -1,3 +1,25 @@
-.example-card {
-  width: 400px;
+.character-avatar {
+  border: #373737 solid 1px;
+}
+
+
+.stat-list {
+  width: 200px;
+}
+
+.stat-bar {
+  height: 10px;
+}
+
+.stat-label {
+  margin-left: 5px;
+}
+
+.character-list {
+  height: 100% !important;
+  width: 100%;
+}
+
+.character-list /deep/ figure {
+  justify-content: flex-start !important;  /*horizontal alignment*/
 }
