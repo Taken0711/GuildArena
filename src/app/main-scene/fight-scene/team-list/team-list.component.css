@@ -11,15 +11,19 @@
   width: 200px;
 }
 
-.stat-list >
-
 /*
 .stat-list > .mat-list-item {
   height: 25px !important;
 }
 */
 .stat-bar {
-  width: 50%;
-  text-align: left;
-  align-content: flex-start;
+  height: 10px;
+}
+
+.team-list /deep/ figure {
+  justify-content: flex-start !important;  /*horizontal alignment*/
+}
+
+.stat-label {
+  margin-left: 5px;
 }
