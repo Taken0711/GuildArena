@@ -2,5 +2,5 @@
 
 ## TODO
 
-### UI
-* Remove all hard-codded size
+### General
+* characterList in fight seems to be empty and causes infinite loop
