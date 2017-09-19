@@ -12,6 +12,7 @@ export class FightCharactCardComponent implements OnInit {
 
   @Input() character: CharacterModel;
   public backgroundColor: string;
+  public state: CharacterState;
 
   constructor(private fightService: FightService) {
     this.backgroundColor = CharacterState.IDLE.toString();
@@ -20,6 +21,7 @@ export class FightCharactCardComponent implements OnInit {
   ngOnInit() {
     this.fightService.currentPlayingCharacter$.subscribe(c => {
       if (c === this.character) {
+        this.state = CharacterState.ATTACK;
         this.backgroundColor = CharacterState.ATTACK.toString();
         console.log(this.character.name);
         console.log(this.backgroundColor);
