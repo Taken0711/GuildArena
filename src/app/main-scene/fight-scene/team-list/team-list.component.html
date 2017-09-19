@@ -1,7 +1,7 @@
-<md-list class="team-list">
-  <h3 md-subheader>{{player.name}}</h3>
-  <md-list-item *ngFor="let character of player.team" class="no-margin no-padding">
+<h3>{{player.name}}</h3>
+<md-grid-list class="team-list" cols="1" rowHeight="75px">
+  <md-grid-tile *ngFor="let character of player.team" class="no-margin no-padding" style="height: 75px">
     <app-fight-charact-card [character]="character" class="max-width"></app-fight-charact-card>
-  </md-list-item>
-</md-list>
+  </md-grid-tile>
+</md-grid-list>
 
