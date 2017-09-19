@@ -5,6 +5,7 @@ import {FightModel} from '../../shared/models/FightModel';
 import {PlayerModel} from '../../shared/models/PlayerModel';
 import {CharacterModel} from "../../shared/models/CharacterModel";
 import {MdSnackBar} from "@angular/material";
+import {FightService} from "../../shared/services/fight/fight.service";
 
 @Component({
   selector: 'app-main-scene',
@@ -18,13 +19,11 @@ export class MainSceneComponent implements OnInit {
   public currentMode: Mode;
   public currentFight: FightModel;
 
-  constructor(private modeService: ModeService, private snackBar: MdSnackBar) {
+  constructor(private modeService: ModeService, private fightService: FightService, private snackBar: MdSnackBar) {
   }
 
   ngOnInit() {
     this.modeService.currentMode$.subscribe((newMode) => this.currentMode = newMode);
-    console.log(this.currentMode);
-    console.log(this.modeService.currentMode$.getValue());
   }
 
   startFight(): void {
@@ -37,7 +36,6 @@ export class MainSceneComponent implements OnInit {
   }
 
   public notifyTurn(character: CharacterModel) {
-    console.log(character);
     this.snackBar.open(`${character.name}'s turn !`, undefined, {
       'duration': 1996
     });

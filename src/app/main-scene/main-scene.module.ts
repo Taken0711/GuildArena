@@ -6,6 +6,7 @@ import {ModeService} from '../../shared/services/mode/mode.service';
 import {MainSceneComponent} from './main-scene.component';
 import { FightSceneComponent } from './fight-scene/fight-scene.component';
 import {FightSceneModule} from "./fight-scene/fight-scene.module";
+import {FightService} from "../../shared/services/fight/fight.service";
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import {FightSceneModule} from "./fight-scene/fight-scene.module";
   ],
   providers: [
     ModeService,
+    FightService,
     MdSnackBar,
   ]
 })

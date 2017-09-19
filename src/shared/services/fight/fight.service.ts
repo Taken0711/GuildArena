@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject} from "rxjs/BehaviorSubject";
-import {FightModel} from "../../models/FightModel";
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {CharacterModel} from '../../models/CharacterModel';
 
 @Injectable()
 export class FightService {
 
-  private currentFight$: BehaviorSubject<FightModel>;
+  private currentPlayingCharacter$: BehaviorSubject<CharacterModel>;
 
   constructor() { }
 
-  updateCurrentFight(nextFight: FightModel) {
-    this.currentFight$.next(nextFight);
-    console.log(`Combat entre ${nextFight.player1.name} et ${nextFight.player2.name}`);
+  updateCurrentPlayingCharacter(playingCharacter: CharacterModel) {
+    this.currentPlayingCharacter$.next(playingCharacter);
   }
 
 }

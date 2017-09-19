@@ -27,7 +27,6 @@ export class FightModel {
     this.characterList = [];
     this.addPlayerToFight(player1);
     this.addPlayerToFight(player2);
-    console.log(this.characterList);
   }
 
   disclaimer(): string {
@@ -40,10 +39,8 @@ export class FightModel {
         c.turnSpeed += this.speedStep;
         if (c.turnSpeed >= CharacterModel.BASE_SPEED) {
           this.attacking.enqueue(c);
-          console.log(c)
         }
       });
-      console.log(this.attacking);
     }
     return this.attacking.dequeue();
   }
