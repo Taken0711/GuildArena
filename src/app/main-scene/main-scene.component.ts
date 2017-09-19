@@ -19,10 +19,12 @@ export class MainSceneComponent implements OnInit {
   public currentMode: Mode;
   public currentFight: FightModel;
 
-  constructor(private modeService: ModeService, private fightService: FightService, private snackBar: MdSnackBar) {
+  constructor(private modeService: ModeService) {
   }
 
   ngOnInit() {
+    // --- Events ---
+    // Mode changing
     this.modeService.currentMode$.subscribe((newMode) => this.currentMode = newMode);
   }
 
@@ -32,13 +34,6 @@ export class MainSceneComponent implements OnInit {
         new CharacterModel('Qui-Gon Jinn', 20, 10, 101)]);
     this.currentFight = new FightModel(p1, p2);
     this.modeService.updateMode(Mode.FIGHT);
-    this.notifyTurn(this.currentFight.playATurn());
-  }
-
-  public notifyTurn(character: CharacterModel) {
-    this.snackBar.open(`${character.name}'s turn !`, undefined, {
-      'duration': 1996
-    });
   }
 
 }

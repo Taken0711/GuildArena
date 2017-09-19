@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {CharacterModel} from '../../models/CharacterModel';
+import {ReplaySubject} from "rxjs/ReplaySubject";
 
 @Injectable()
 export class FightService {
 
-  private currentPlayingCharacter$: BehaviorSubject<CharacterModel>;
+  public currentPlayingCharacter$: ReplaySubject<CharacterModel>;
 
-  constructor() { }
+  constructor() {
+    this.currentPlayingCharacter$ = new ReplaySubject(1);
+  }
 
   updateCurrentPlayingCharacter(playingCharacter: CharacterModel) {
     this.currentPlayingCharacter$.next(playingCharacter);

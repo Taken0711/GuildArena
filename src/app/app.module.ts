@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MainSceneModule} from './main-scene/main-scene.module';
+import { CharacterCardBackgroundDirective } from '../shared/directives/character-card-background/character-card-background.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
+    CharacterCardBackgroundDirective,
   ],
   imports: [
     BrowserModule,
