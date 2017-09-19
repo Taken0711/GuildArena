@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {CharacterModel} from '../../models/CharacterModel';
-import {ReplaySubject} from "rxjs/ReplaySubject";
+import {ReplaySubject} from 'rxjs/ReplaySubject';
 
 @Injectable()
 export class FightService {

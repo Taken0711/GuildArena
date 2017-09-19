@@ -22,7 +22,7 @@ import {FightService} from '../../../shared/services/fight/fight.service';
   declarations: [
     FightSceneComponent,
     TeamListComponent,
-    FightCharactCardComponent
+    FightCharactCardComponent,
   ],
   exports: [
     FightSceneComponent

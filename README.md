@@ -5,6 +5,7 @@
 ### Fight
 * Make more than one turn
 * Resolve ExpressionChanged error on current playing character (fight service)
+* Maybe use BehaviorSubject for current playing character in the fight service
 
 ### UI
 * Make character card bigger (and a padding, for background colors)
