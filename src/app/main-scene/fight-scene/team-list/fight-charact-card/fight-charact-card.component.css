@@ -1,10 +1,13 @@
 .character-avatar {
   border: #373737 solid 1px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
 }
 
 
 .stat-list {
-  width: 200px;
+  width: 100%;
 }
 
 .stat-bar {
@@ -17,9 +20,20 @@
 
 .character-list {
   height: 100% !important;
-  width: 100%;
+  flex: 1 1 auto;
 }
 
 .character-list /deep/ figure {
   justify-content: flex-start !important;  /*horizontal alignment*/
+}
+
+.character-card {
+  height: 75px;
+  padding: 0 16px 0 16px;
+  display: flex;
+  flex-direction: row;
+  flex: 0 0 40px;
+  box-sizing: border-box;
+  position: relative;
+  align-items: center;
 }
