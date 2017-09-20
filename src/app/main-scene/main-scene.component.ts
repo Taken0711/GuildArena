@@ -31,7 +31,7 @@ export class MainSceneComponent implements OnInit {
   startFight(): void {
     const p1 = new PlayerModel('The Empire', [new CharacterModel('Darth Vader', 50, 6, 100)]);
     const p2 = new PlayerModel('The Republic', [new CharacterModel('Obi-Wan Kenobi', 50, 4, 99),
-        new CharacterModel('Qui-Gon Jinn', 20, 10, 101)]);
+        new CharacterModel('Qui-Gon Jinn', 20, 10, 150)]);
     this.currentFight = new FightModel(p1, p2);
     this.modeService.updateMode(Mode.FIGHT);
   }
