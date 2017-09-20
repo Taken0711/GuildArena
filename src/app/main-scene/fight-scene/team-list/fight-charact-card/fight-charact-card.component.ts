@@ -14,19 +14,52 @@ export class FightCharactCardComponent implements OnInit {
   public backgroundColor: string;
 
   constructor(private fightService: FightService) {
-    this.backgroundColor = CharacterState.IDLE.toString();
+    this.idle();
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.fightService.currentPlayingCharacter$.subscribe(c => {
       if (c === this.character) {
-        this.backgroundColor = CharacterState.ATTACK.toString();
-        console.log(this.character.name);
-        console.log(this.backgroundColor);
-      } else if (this.backgroundColor === CharacterState.ATTACK.toString()) {
-        this.backgroundColor = CharacterState.IDLE.toString();
+        this.attack();
+      } else if (this.isAttacking()) {
+        this.idle();
       }
     });
   }
 
+  private isTarget(): boolean {
+    return this.backgroundColor === CharacterState.TARGET.toString();
+  }
+
+  private target(): void {
+    if (this.isIdling()) {
+      this.changeState(CharacterState.TARGET);
+    }
+  }
+
+  private untarget(): void {
+    if (this.isTarget()) {
+      this.idle();
+    }
+  }
+
+  private isAttacking(): boolean {
+    return this.backgroundColor === CharacterState.ATTACK.toString();
+  }
+
+  private attack(): void {
+    this.backgroundColor = CharacterState.ATTACK.toString();
+  }
+
+  private isIdling(): boolean {
+    return this.backgroundColor === CharacterState.IDLE.toString();
+  }
+
+  private idle(): void {
+    this.changeState(CharacterState.IDLE);
+  }
+
+  private changeState(state: CharacterState): void {
+    this.backgroundColor = state.toString();
+  }
 }

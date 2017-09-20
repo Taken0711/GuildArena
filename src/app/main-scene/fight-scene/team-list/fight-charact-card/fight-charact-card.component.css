@@ -36,4 +36,5 @@
   box-sizing: border-box;
   position: relative;
   align-items: center;
+  cursor: pointer;
 }
