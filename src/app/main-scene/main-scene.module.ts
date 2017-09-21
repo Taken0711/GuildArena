@@ -19,6 +19,6 @@ import {FightSceneModule} from './fight-scene/fight-scene.module';
   ],
   providers: [
     ModeService,
-  ]
+  ],
 })
 export class MainSceneModule { }

@@ -2,7 +2,8 @@
     class="character-card"
     [ngStyle]="{'background-color': backgroundColor}"
     (mouseenter)="target()"
-    (mouseleave)="untarget()">
+    (mouseleave)="untarget()"
+    (click)="getAttacked()">
   <img src="../../../../../assets/img/character/default.png" class="character-avatar">
   <md-grid-list cols="2" rowHeight="fit" class="character-list">
     <md-grid-tile>

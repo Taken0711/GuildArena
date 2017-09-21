@@ -2,15 +2,19 @@
 
 ## TODO
 
+### General
+* Team customization
+
+### Class system
+* Class system
+* Different stats
+* Spells
+
 ### Fight
-* Make more than one turn
-* Resolve ExpressionChanged error on current playing character (fight service)
-* Maybe use BehaviorSubject for current playing character in the fight service
+* Aoe
+* Resolve ExpressionChanged error on current playing character (fight service ? Is it really that ?)
 
 ### UI
-* Make character card bigger (and a padding, for background colors)
-* Coloration on the currently playing character
+* MdDialog style doesn't work on content and button, why the fuck ??
 * Figure out the message on the snack bar (and the 's or not)
-* Make background coloration on character turn
-  * Changing background directive
-  * Method call on event
+* Different avatar according to the class

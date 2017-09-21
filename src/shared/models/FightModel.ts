@@ -1,6 +1,8 @@
 import {PlayerModel} from './PlayerModel';
 import {CharacterModel} from 'shared/models/CharacterModel';
 import * as Collections from 'typescript-collections/dist/lib';
+import {BehaviorSubject} from "rxjs/BehaviorSubject";
+import {ReplaySubject} from "rxjs/ReplaySubject";
 
 export class FightModel {
 
@@ -10,6 +12,8 @@ export class FightModel {
   public speedStep: number;
   public attacking: Collections.PriorityQueue<CharacterModel>;
   public characterList: CharacterModel[];
+  public currentAttackingCharacter: CharacterModel;
+
 
   constructor(player1: PlayerModel, player2: PlayerModel) {
     this.player1 = player1;
@@ -29,20 +33,45 @@ export class FightModel {
     this.addPlayerToFight(player2);
   }
 
-  disclaimer(): string {
+  public triggerAttack(target: CharacterModel): void {
+    target.takeDamages(this.currentAttackingCharacter.basicAttack());
+    if (target.isDead()) {
+      target.turnSpeed = 0;
+    }
+  }
+
+  public disclaimer(): string {
     return `${this.player1.name} VS ${this.player2.name}`;
   }
 
-  playATurn(): CharacterModel {
+  public playATurn(): CharacterModel {
     while (this.attacking.isEmpty()) {
       this.characterList.forEach(c => {
+        if (c.isDead()) {
+          return;
+        }
         c.turnSpeed += c.speed / this.characterList.length;
         if (c.turnSpeed >= CharacterModel.BASE_SPEED) {
           this.attacking.enqueue(c);
         }
       });
     }
-    return this.attacking.dequeue();
+    this.currentAttackingCharacter = this.attacking.dequeue();
+    return this.currentAttackingCharacter;
+  }
+
+  /**
+   * Return the winning player if the fight is finisehd, undefined otherwise
+   * @returns {boolean}
+   */
+  public getWinner() {
+    if (this.player1.hasLost()) {
+      return this.player2;
+    }
+    if (this.player2.hasLost()) {
+      return this.player1;
+    }
+    return undefined;
   }
 
   private addPlayerToFight(player: PlayerModel) {
@@ -51,4 +80,5 @@ export class FightModel {
       this.characterList.push(c);
     })
   }
+
 }

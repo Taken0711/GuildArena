@@ -2,12 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FightSceneComponent} from './fight-scene.component';
 import {
-  MdCardModule, MdGridListModule, MdListModule, MdProgressBarModule,
+  MdCardModule, MdDialog, MdDialogModule, MdGridListModule, MdListModule, MdProgressBarModule,
   MdProgressSpinnerModule, MdSnackBar, MdSnackBarModule
 } from '@angular/material';
 import { TeamListComponent } from './team-list/team-list.component';
 import { FightCharactCardComponent } from './team-list/fight-charact-card/fight-charact-card.component';
 import {FightService} from '../../../shared/services/fight/fight.service';
+import { WinnerDialogComponent } from './winner-dialog/winner-dialog.component';
 
 @NgModule({
   imports: [
@@ -18,11 +19,13 @@ import {FightService} from '../../../shared/services/fight/fight.service';
     MdProgressBarModule,
     MdProgressSpinnerModule,
     MdSnackBarModule,
+    MdDialogModule,
   ],
   declarations: [
     FightSceneComponent,
     TeamListComponent,
     FightCharactCardComponent,
+    WinnerDialogComponent,
   ],
   exports: [
     FightSceneComponent
@@ -30,6 +33,8 @@ import {FightService} from '../../../shared/services/fight/fight.service';
   providers: [
     FightService,
     MdSnackBar,
-  ]
+    MdDialog,
+  ],
+  entryComponents: [WinnerDialogComponent]
 })
 export class FightSceneModule { }

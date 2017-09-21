@@ -14,52 +14,55 @@ export class FightCharactCardComponent implements OnInit {
   public backgroundColor: string;
 
   constructor(private fightService: FightService) {
-    this.idle();
+    this.changeState(CharacterState.IDLE);
   }
 
   ngOnInit(): void {
-    this.fightService.currentPlayingCharacter$.subscribe(c => {
-      if (c === this.character) {
-        this.attack();
-      } else if (this.isAttacking()) {
-        this.idle();
+    // ----- Events -----
+    // Death
+    this.character.death$.subscribe(isDead => {
+      if (isDead) {
+        this.changeState(CharacterState.DEAD);
+      } else {
+        this.changeState(CharacterState.IDLE);
       }
     });
+    // Attacking turn
+    this.fightService.currentAttackingCharacter$.subscribe(c => {
+      if (c === this.character) {
+        this.changeState(CharacterState.ATTACK);
+      } else if (this.isState(CharacterState.ATTACK)) {
+        this.changeState(CharacterState.IDLE);
+      }
+    });
+    // --- End events ---
   }
 
-  private isTarget(): boolean {
-    return this.backgroundColor === CharacterState.TARGET.toString();
+  public getAttacked(): void {
+    if (this.isState(CharacterState.TARGET)) {
+      this.fightService.triggerAttack(this.character);
+    }
   }
 
-  private target(): void {
-    if (this.isIdling()) {
+
+  target(): void {
+    if (this.isState(CharacterState.IDLE)) {
       this.changeState(CharacterState.TARGET);
     }
   }
 
-  private untarget(): void {
-    if (this.isTarget()) {
-      this.idle();
+  untarget(): void {
+    if (this.isState(CharacterState.TARGET)) {
+      this.changeState(CharacterState.IDLE);
     }
   }
 
-  private isAttacking(): boolean {
-    return this.backgroundColor === CharacterState.ATTACK.toString();
+  private changeState(stateColor: string): void {
+    this.backgroundColor = stateColor;
   }
 
-  private attack(): void {
-    this.backgroundColor = CharacterState.ATTACK.toString();
+  private isState(stateColor: string): boolean {
+    return this.backgroundColor === stateColor;
   }
 
-  private isIdling(): boolean {
-    return this.backgroundColor === CharacterState.IDLE.toString();
-  }
-
-  private idle(): void {
-    this.changeState(CharacterState.IDLE);
-  }
-
-  private changeState(state: CharacterState): void {
-    this.backgroundColor = state.toString();
-  }
 }
