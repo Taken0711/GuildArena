@@ -36,7 +36,7 @@ export class FightModel {
   playATurn(): CharacterModel {
     while (this.attacking.isEmpty()) {
       this.characterList.forEach(c => {
-        c.turnSpeed += this.speedStep;
+        c.turnSpeed += c.speed / this.characterList.length;
         if (c.turnSpeed >= CharacterModel.BASE_SPEED) {
           this.attacking.enqueue(c);
         }
