@@ -13,4 +13,13 @@ export class PlayerModel {
     }
   }
 
+  public hasLost(): boolean  {
+    for (const c of this.team) {
+      if (!c.isDead()) {
+        return false;
+      }
+    }
+    return true;
+  }
+
 }
