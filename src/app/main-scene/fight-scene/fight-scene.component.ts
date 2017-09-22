@@ -21,7 +21,7 @@ export class FightSceneComponent implements OnInit {
     // End of fight
     this.fightService.currentFightWinner$.subscribe(winner => {
       this.dialog.open(WinnerDialogComponent, {
-        width: '250px',
+        width: '450px',
         data: { 'winner': winner}
       });
     });

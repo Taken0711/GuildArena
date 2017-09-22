@@ -19,13 +19,11 @@ import { WinnerDialogComponent } from './winner-dialog/winner-dialog.component';
     MdProgressBarModule,
     MdProgressSpinnerModule,
     MdSnackBarModule,
-    MdDialogModule,
   ],
   declarations: [
     FightSceneComponent,
     TeamListComponent,
     FightCharactCardComponent,
-    WinnerDialogComponent,
   ],
   exports: [
     FightSceneComponent
@@ -35,6 +33,5 @@ import { WinnerDialogComponent } from './winner-dialog/winner-dialog.component';
     MdSnackBar,
     MdDialog,
   ],
-  entryComponents: [WinnerDialogComponent]
 })
 export class FightSceneModule { }

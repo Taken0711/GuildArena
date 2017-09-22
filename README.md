@@ -16,6 +16,7 @@
 
 ### UI
 * MdDialog style doesn't work on content and button, why the fuck ??
+* Center mddialog title and button
 * Figure out the message on the snack bar (and the 's or not)
 * Different avatar according to the class
 
