@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CharacterModel} from '../../../../../shared/models/CharacterModel';
+import {CharacterModel} from '../../../../../shared/models/characters/CharacterModel';
 import {FightService} from '../../../../../shared/services/fight/fight.service';
 import {CharacterState} from '../../../../../shared/constants/character-state';
 

@@ -10,7 +10,7 @@
       <md-list class="no-padding no-margin">
         <md-list-item class="no-padding no-margin">
           <h4 md-line>{{character.name}}</h4>
-          <p md-line>{{character.clazz}}</p>
+          <p md-line md-tooltip="{{character.clazz.description}}">{{character.clazz.name}}</p>
         </md-list-item>
       </md-list>
     </md-grid-tile>
