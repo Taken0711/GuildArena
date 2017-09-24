@@ -16,6 +16,7 @@
 
 .stat-label {
   margin-left: 5px;
+  font-size: 14px;
 }
 
 .character-list {
@@ -37,4 +38,7 @@
   position: relative;
   align-items: center;
   cursor: pointer;
+  border: #373737 solid 1px;
+  border-radius: 20px;
 }
+

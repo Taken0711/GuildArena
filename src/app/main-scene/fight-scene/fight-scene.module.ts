@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {FightSceneComponent} from './fight-scene.component';
 import {
   MdCardModule, MdDialog, MdDialogModule, MdGridListModule, MdListModule, MdProgressBarModule,
-  MdProgressSpinnerModule, MdSnackBar, MdSnackBarModule
+  MdProgressSpinnerModule, MdSnackBar, MdSnackBarModule, MdTooltipModule
 } from '@angular/material';
 import { TeamListComponent } from './team-list/team-list.component';
 import { FightCharactCardComponent } from './team-list/fight-charact-card/fight-charact-card.component';
@@ -19,13 +19,12 @@ import { WinnerDialogComponent } from './winner-dialog/winner-dialog.component';
     MdProgressBarModule,
     MdProgressSpinnerModule,
     MdSnackBarModule,
-    MdDialogModule,
+    MdTooltipModule
   ],
   declarations: [
     FightSceneComponent,
     TeamListComponent,
     FightCharactCardComponent,
-    WinnerDialogComponent,
   ],
   exports: [
     FightSceneComponent
@@ -35,6 +34,5 @@ import { WinnerDialogComponent } from './winner-dialog/winner-dialog.component';
     MdSnackBar,
     MdDialog,
   ],
-  entryComponents: [WinnerDialogComponent]
 })
 export class FightSceneModule { }

@@ -1,0 +1,35 @@
+.state-bar {
+  display: flex;
+  flex-direction: row;
+  height: 150px;
+  flex: 0 0 150px;
+  margin: 20px 0 0 0;
+}
+
+.selection-scene {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.character-selection-button {
+  height: 70px;
+  width: 180px;
+  margin: 40px 0 40px 60px;
+  font-size: 20px;
+}
+
+.character-selection-avatar {
+  border: #373737 solid 1px;
+  border-radius: 50%;
+  height: 148px;
+  width: auto;
+  cursor: pointer;
+}
+
+.character-selection-artwork {
+  height: 100%;
+  width: auto;
+  cursor: pointer;
+}

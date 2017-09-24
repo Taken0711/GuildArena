@@ -1,5 +1,5 @@
 import {PlayerModel} from './PlayerModel';
-import {CharacterModel} from 'shared/models/CharacterModel';
+import {CharacterModel} from 'shared/models/characters/CharacterModel';
 import * as Collections from 'typescript-collections/dist/lib';
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {ReplaySubject} from "rxjs/ReplaySubject";
@@ -20,10 +20,10 @@ export class FightModel {
     this.player2 = player2;
     this.speedStep = Math.ceil(CharacterModel.BASE_SPEED / (player1.team.length + player2.team.length));
     this.attacking = new Collections.PriorityQueue<CharacterModel>(function(a: CharacterModel, b: CharacterModel) {
-      if (a.speed < b.speed) {
+      if (a.clazz.stats.speed < b.clazz.stats.speed) {
         return -1;
       }
-      if (a.speed > b.speed) {
+      if (a.clazz.stats.speed > b.clazz.stats.speed) {
         return 1;
       }
       return 0;
@@ -45,12 +45,15 @@ export class FightModel {
   }
 
   public playATurn(): CharacterModel {
+    while (!this.attacking.isEmpty() && this.attacking.peek().isDead()) {
+      this.attacking.dequeue();
+    }
     while (this.attacking.isEmpty()) {
       this.characterList.forEach(c => {
         if (c.isDead()) {
           return;
         }
-        c.turnSpeed += c.speed / this.characterList.length;
+        c.turnSpeed += c.clazz.stats.speed / this.characterList.length;
         if (c.turnSpeed >= CharacterModel.BASE_SPEED) {
           this.attacking.enqueue(c);
         }
