@@ -12,12 +12,16 @@ export class CharacterModel {
   public turnSpeed: number;
   public death$: ReplaySubject<boolean>;
 
+  private id: number;
+
 
   constructor(clazz: CharacterClassModel) {
     this.name = clazz.characterName;
     this.clazz = clazz;
 
     this.death$ = new ReplaySubject<boolean>(1);
+
+    this.id = Math.random() * 1e32;
   }
 
   public resetToFight(): void {

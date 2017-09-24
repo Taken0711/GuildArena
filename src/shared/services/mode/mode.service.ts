@@ -8,7 +8,7 @@ export class ModeService {
   public currentMode$: BehaviorSubject<Mode>;
 
   constructor() {
-    this.currentMode$ = new BehaviorSubject(Mode.HOME);
+    this.currentMode$ = new BehaviorSubject(Mode.SELECTING);
   }
 
   public updateMode(newMode: Mode) {

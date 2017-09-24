@@ -12,9 +12,11 @@ import {WinnerDialogComponent} from "./winner-dialog/winner-dialog.component";
 })
 export class FightSceneComponent implements OnInit {
 
-  @Input() public currentFight: FightModel;
+  public currentFight: FightModel;
 
-  constructor(private fightService: FightService, private snackBar: MdSnackBar, private dialog: MdDialog) { }
+  constructor(private fightService: FightService, private snackBar: MdSnackBar, private dialog: MdDialog) {
+    this.currentFight = this.fightService.getCurrentFight();
+  }
 
   ngOnInit() {
     // --- Events ---
@@ -32,7 +34,6 @@ export class FightSceneComponent implements OnInit {
       });
     });
 
-    this.fightService.updateCurrentFight(this.currentFight);
     this.fightService.startFight();
   }
 
