@@ -1,5 +1,5 @@
 import {PlayerModel} from './PlayerModel';
-import {CharacterModel} from 'shared/models/CharacterModel';
+import {CharacterModel} from 'shared/models/characters/CharacterModel';
 import * as Collections from 'typescript-collections/dist/lib';
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {ReplaySubject} from "rxjs/ReplaySubject";

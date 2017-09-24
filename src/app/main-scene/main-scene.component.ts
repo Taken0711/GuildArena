@@ -3,9 +3,16 @@ import {ModeService} from '../../shared/services/mode/mode.service';
 import {Mode} from '../../shared/constants/mode';
 import {FightModel} from '../../shared/models/FightModel';
 import {PlayerModel} from '../../shared/models/PlayerModel';
-import {CharacterModel} from "../../shared/models/CharacterModel";
+import {CharacterModel} from "../../shared/models/characters/CharacterModel";
 import {MdSnackBar} from "@angular/material";
 import {FightService} from "../../shared/services/fight/fight.service";
+import {MageModel} from "../../shared/models/characters/MageModel";
+import {WarriorModel} from "../../shared/models/characters/WarriorModel";
+import {HunterModel} from "../../shared/models/characters/HunterModel";
+import {WizardModel} from "../../shared/models/characters/WizardModel";
+import {PriestModel} from "../../shared/models/characters/PriestModel";
+import {PaladinModel} from "../../shared/models/characters/PaladinModel";
+import {RogueModel} from "../../shared/models/characters/RogueModel";
 
 @Component({
   selector: 'app-main-scene',
@@ -29,9 +36,8 @@ export class MainSceneComponent implements OnInit {
   }
 
   startFight(): void {
-    const p1 = new PlayerModel('The Empire', [new CharacterModel('Darth Vader', 50, 6, 100)]);
-    const p2 = new PlayerModel('The Republic', [new CharacterModel('Obi-Wan Kenobi', 50, 4, 99),
-        new CharacterModel('Qui-Gon Jinn', 20, 10, 150)]);
+    const p1 = new PlayerModel('Player 1', [new WarriorModel(), new MageModel(), new PriestModel(), new HunterModel(), new WizardModel()]);
+    const p2 = new PlayerModel('Player 2', [new PaladinModel(), new RogueModel(), new HunterModel(), new WizardModel(), new PriestModel()]);
     this.currentFight = new FightModel(p1, p2);
     this.modeService.updateMode(Mode.FIGHT);
   }

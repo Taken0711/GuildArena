@@ -6,8 +6,7 @@
 * Team customization
 
 ### Class system
-* Class system
-* Different stats
+* Different avatar
 * Spells
 
 ### Fight
@@ -16,6 +15,8 @@
 
 ### UI
 * MdDialog style doesn't work on content and button, why the fuck ??
+* Increase font size in class tooltip
+* Center mddialog title and button
 * Figure out the message on the snack bar (and the 's or not)
 * Different avatar according to the class
 

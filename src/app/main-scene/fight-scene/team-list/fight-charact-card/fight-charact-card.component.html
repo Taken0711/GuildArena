@@ -4,13 +4,13 @@
     (mouseenter)="target()"
     (mouseleave)="untarget()"
     (click)="getAttacked()">
-  <img src="../../../../../assets/img/character/default.png" class="character-avatar">
+  <img src="../../../../../assets/img/character/avatar/{{character.clazz.name}}.png" class="character-avatar">
   <md-grid-list cols="2" rowHeight="fit" class="character-list">
     <md-grid-tile>
       <md-list class="no-padding no-margin">
         <md-list-item class="no-padding no-margin">
           <h4 md-line>{{character.name}}</h4>
-          <p md-line>{{character.clazz}}</p>
+          <p md-line md-tooltip="{{character.clazz.description}}">{{character.clazz.name}}</p>
         </md-list-item>
       </md-list>
     </md-grid-tile>

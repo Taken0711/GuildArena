@@ -1,11 +1,13 @@
 import {ReplaySubject} from "rxjs/ReplaySubject";
+import {ClassModel} from "../ClassModel";
 
 export class CharacterModel {
 
   public static readonly BASE_SPEED = 100;
+  public static readonly DEFAULT_CLASS = new ClassModel('Unknown class', 'Unknown class');
 
   public readonly name: string;
-  public readonly clazz: string;
+  public readonly clazz: ClassModel;
   public readonly maxHp: number;
   public readonly attack: number;
   public readonly speed: number;
@@ -15,9 +17,9 @@ export class CharacterModel {
   public death$: ReplaySubject<boolean>;
 
 
-  constructor(name: string, maxHp: number, attack: number, speed: number) {
+  constructor(name: string, clazz = new ClassModel('Unknown class', 'Unknown class'), maxHp: number, attack: number, speed: number) {
     this.name = name;
-    this.clazz = 'Unknown class';
+    this.clazz = clazz;
     this.maxHp = maxHp;
     this.attack = attack;
     this.speed = speed;

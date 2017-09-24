@@ -1,4 +1,4 @@
-import {CharacterModel} from './CharacterModel';
+import {CharacterModel} from './characters/CharacterModel';
 
 export class PlayerModel {
 

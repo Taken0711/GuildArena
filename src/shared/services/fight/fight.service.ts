@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {CharacterModel} from '../../models/CharacterModel';
+import {CharacterModel} from '../../models/characters/CharacterModel';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {FightModel} from "../../models/FightModel";
 import {PlayerModel} from "../../models/PlayerModel";
