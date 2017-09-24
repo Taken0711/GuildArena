@@ -1,5 +1,5 @@
-<!--<div [ngSwitch]="currentMode">
+<div [ngSwitch]="currentMode">
   <button md-raised-button color="primary" *ngSwitchCase="mode.HOME" (click)="startFight()">Fight !</button>
-  <app-fight-scene *ngSwitchCase="mode.FIGHT" [currentFight]="currentFight"></app-fight-scene>
-</div>-->
-<app-team-selection-scene></app-team-selection-scene>
+  <app-fight-scene *ngSwitchCase="mode.FIGHT"></app-fight-scene>
+  <app-team-selection-scene *ngSwitchCase="mode.SELECTING"></app-team-selection-scene>
+</div>

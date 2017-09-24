@@ -45,6 +45,9 @@ export class FightModel {
   }
 
   public playATurn(): CharacterModel {
+    while (!this.attacking.isEmpty() && this.attacking.peek().isDead()) {
+      this.attacking.dequeue();
+    }
     while (this.attacking.isEmpty()) {
       this.characterList.forEach(c => {
         if (c.isDead()) {
