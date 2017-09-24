@@ -16,7 +16,7 @@
 .character-selection-button {
   height: 70px;
   width: 180px;
-  margin: 40px 0 40px 140px;
+  margin: 40px 0 40px 60px;
   font-size: 20px;
 }
 
@@ -24,7 +24,8 @@
   border: #373737 solid 1px;
   border-radius: 50%;
   height: 148px;
-  width: auto
+  width: auto;
+  cursor: pointer;
 }
 
 .character-selection-artwork {

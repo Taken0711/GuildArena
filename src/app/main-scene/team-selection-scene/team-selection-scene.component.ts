@@ -40,6 +40,13 @@ export class TeamSelectionSceneComponent implements OnInit {
     this.currentSelectingPlayer.team = [];
   }
 
+  public remove(character: CharacterModel) {
+    const index = this.currentSelectingPlayer.team.indexOf(character);
+    if (this.index > -1) {
+      this.currentSelectingPlayer.team.splice(index, 1);
+    }
+  }
+
   public ready() {
     this.index++;
     if (this.index >= this.players.length) {
