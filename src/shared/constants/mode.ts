@@ -1,4 +1,5 @@
 export enum Mode {
   HOME,
-  FIGHT
+  FIGHT,
+  SELECTING,
 }

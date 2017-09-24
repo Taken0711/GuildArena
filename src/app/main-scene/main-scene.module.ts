@@ -4,16 +4,14 @@ import {MdButtonModule} from '@angular/material';
 import {ModeService} from '../../shared/services/mode/mode.service';
 import {MainSceneComponent} from './main-scene.component';
 import {FightSceneModule} from './fight-scene/fight-scene.module';
-import { TeamSelectionSceneComponent } from './team-selection-scene/team-selection-scene.component';
-import { AvailableCharacterComponent } from './team-selection-scene/available-character/available-character.component';
-import { CharacterSelectionComponent } from './team-selection-scene/character-selection/character-selection.component';
+import {TeamSelectionSceneModule} from "./team-selection-scene/team-selection-scene.module";
 
 @NgModule({
   imports: [
     CommonModule,
     MdButtonModule,
     FightSceneModule,
-    TeamSelectionSceneComponent,
+    TeamSelectionSceneModule,
   ],
   declarations: [
     MainSceneComponent,
