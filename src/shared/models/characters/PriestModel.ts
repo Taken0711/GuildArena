@@ -8,7 +8,7 @@ export class PriestModel extends CharacterModel {
   public static readonly CHARACT_CLAZZ = new ClassModel('Priest', CHARACTER_DESCRIPTION.PRIEST);
 
   constructor() {
-    super('Anduin', PriestModel.CHARACT_CLAZZ, BASE_STATS.PRIEST.HP, BASE_STATS.PRIEST.ATTACK, BASE_STATS.PRIEST.SPEED);
+    super('Asharae', PriestModel.CHARACT_CLAZZ, BASE_STATS.PRIEST.HP, BASE_STATS.PRIEST.ATTACK, BASE_STATS.PRIEST.SPEED);
   }
 
 }

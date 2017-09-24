@@ -8,7 +8,7 @@ export class RogueModel extends CharacterModel {
   public static readonly CHARACT_CLAZZ = new ClassModel('Rogue', CHARACTER_DESCRIPTION.ROGUE);
 
   constructor() {
-    super('Garona', RogueModel.CHARACT_CLAZZ, BASE_STATS.ROGUE.HP, BASE_STATS.ROGUE.ATTACK, BASE_STATS.ROGUE.SPEED);
+    super('Red', RogueModel.CHARACT_CLAZZ, BASE_STATS.ROGUE.HP, BASE_STATS.ROGUE.ATTACK, BASE_STATS.ROGUE.SPEED);
   }
 
 }

@@ -8,7 +8,7 @@ export class MageModel extends CharacterModel {
   public static readonly CHARACT_CLAZZ = new ClassModel('Mage', CHARACTER_DESCRIPTION.MAGE);
 
   constructor() {
-    super('Albus Dumbledor', MageModel.CHARACT_CLAZZ, BASE_STATS.MAGE.HP, BASE_STATS.MAGE.ATTACK, BASE_STATS.MAGE.SPEED);
+    super('Velvet', MageModel.CHARACT_CLAZZ, BASE_STATS.MAGE.HP, BASE_STATS.MAGE.ATTACK, BASE_STATS.MAGE.SPEED);
   }
 
 }
