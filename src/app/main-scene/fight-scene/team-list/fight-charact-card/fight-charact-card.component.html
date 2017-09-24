@@ -21,7 +21,7 @@
             class="stat-bar"
             [color]="primary"
             [mode]="progress"
-            [value]="100 * (character.hp/character.maxHp)">
+            [value]="100 * (character.hp/character.clazz.stats.hp)">
           </md-progress-bar>
           <label class="stat-label">HP&nbsp;&nbsp;</label>
         </md-grid-tile>

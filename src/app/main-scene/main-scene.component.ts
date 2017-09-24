@@ -3,16 +3,8 @@ import {ModeService} from '../../shared/services/mode/mode.service';
 import {Mode} from '../../shared/constants/mode';
 import {FightModel} from '../../shared/models/FightModel';
 import {PlayerModel} from '../../shared/models/PlayerModel';
-import {CharacterModel} from "../../shared/models/characters/CharacterModel";
-import {MdSnackBar} from "@angular/material";
-import {FightService} from "../../shared/services/fight/fight.service";
-import {MageModel} from "../../shared/models/characters/MageModel";
-import {WarriorModel} from "../../shared/models/characters/WarriorModel";
-import {HunterModel} from "../../shared/models/characters/HunterModel";
-import {WizardModel} from "../../shared/models/characters/WizardModel";
-import {PriestModel} from "../../shared/models/characters/PriestModel";
-import {PaladinModel} from "../../shared/models/characters/PaladinModel";
-import {RogueModel} from "../../shared/models/characters/RogueModel";
+import {CharacterModel} from "shared/models/characters/CharacterModel";
+import {CharacterClass} from "../../shared/constants/character-class";
 
 @Component({
   selector: 'app-main-scene',
@@ -36,8 +28,20 @@ export class MainSceneComponent implements OnInit {
   }
 
   startFight(): void {
-    const p1 = new PlayerModel('Player 1', [new WarriorModel(), new MageModel(), new PriestModel(), new HunterModel(), new WizardModel()]);
-    const p2 = new PlayerModel('Player 2', [new PaladinModel(), new RogueModel(), new HunterModel(), new WizardModel(), new PriestModel()]);
+    const p1 = new PlayerModel('Player 1', [
+      new CharacterModel(CharacterClass.WARRIOR),
+      new CharacterModel(CharacterClass.MAGE),
+      new CharacterModel(CharacterClass.PRIEST),
+      new CharacterModel(CharacterClass.HUNTER),
+      new CharacterModel(CharacterClass.WIZARD)
+    ]);
+    const p2 = new PlayerModel('Player 2', [
+      new CharacterModel(CharacterClass.PALADIN),
+      new CharacterModel(CharacterClass.ROGUE),
+      new CharacterModel(CharacterClass.HUNTER),
+      new CharacterModel(CharacterClass.WIZARD),
+      new CharacterModel(CharacterClass.PRIEST)
+    ]);
     this.currentFight = new FightModel(p1, p2);
     this.modeService.updateMode(Mode.FIGHT);
   }

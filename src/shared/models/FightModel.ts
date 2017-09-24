@@ -20,10 +20,10 @@ export class FightModel {
     this.player2 = player2;
     this.speedStep = Math.ceil(CharacterModel.BASE_SPEED / (player1.team.length + player2.team.length));
     this.attacking = new Collections.PriorityQueue<CharacterModel>(function(a: CharacterModel, b: CharacterModel) {
-      if (a.speed < b.speed) {
+      if (a.clazz.stats.speed < b.clazz.stats.speed) {
         return -1;
       }
-      if (a.speed > b.speed) {
+      if (a.clazz.stats.speed > b.clazz.stats.speed) {
         return 1;
       }
       return 0;
@@ -50,7 +50,7 @@ export class FightModel {
         if (c.isDead()) {
           return;
         }
-        c.turnSpeed += c.speed / this.characterList.length;
+        c.turnSpeed += c.clazz.stats.speed / this.characterList.length;
         if (c.turnSpeed >= CharacterModel.BASE_SPEED) {
           this.attacking.enqueue(c);
         }

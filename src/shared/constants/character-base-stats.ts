@@ -1,9 +1,11 @@
+import {CharacterStatsModel} from "../models/CharacterStatsModel";
+
 export const BASE_STATS = {
-  WARRIOR:  { HP: 100,  ATTACK: 7,    SPEED: 100},
-  PALADIN:  { HP: 90,   ATTACK: 8,    SPEED: 100},
-  ROGUE:    { HP: 70,   ATTACK: 7,    SPEED: 140},
-  MAGE:     { HP: 50,   ATTACK: 14,   SPEED: 99},
-  WIZARD:   { HP: 50,   ATTACK: 14,   SPEED: 99},
-  HUNTER:   { HP: 50,   ATTACK: 10,    SPEED: 130},
-  PRIEST:   { HP: 50,   ATTACK: 8,    SPEED: 100},
+  WARRIOR:  new CharacterStatsModel(100, 7, 100),
+  PALADIN:  new CharacterStatsModel(90, 8, 100),
+  ROGUE:    new CharacterStatsModel(70, 7, 140),
+  MAGE:     new CharacterStatsModel(50, 14, 99),
+  WIZARD:   new CharacterStatsModel(50, 14, 99),
+  HUNTER:   new CharacterStatsModel(50, 10, 130),
+  PRIEST:   new CharacterStatsModel(50, 8, 100),
 };
