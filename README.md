@@ -6,7 +6,6 @@
 * Team customization
 
 ### Class system
-* Different avatar
 * Spells
 
 ### Fight
