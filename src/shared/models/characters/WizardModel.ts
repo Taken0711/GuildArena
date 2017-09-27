@@ -2,12 +2,12 @@ import {CharacterModel} from "./CharacterModel";
 import {CharacterClass} from "../../constants/character-class";
 import {CharacterStatsModel} from "../CharacterStatsModel";
 
-export class HunterModel extends CharacterModel {
+export class WizardModel extends CharacterModel {
 
-  private static readonly STATS = new CharacterStatsModel(50, 10, 130);
+  private static readonly STATS = new CharacterStatsModel(50, 14, 99);
 
   constructor() {
-    super('Anasasiel', CharacterClass.HUNTER, HunterModel.STATS);
+    super('Leaena', CharacterClass.WIZARD, WizardModel.STATS);
   }
 
 }

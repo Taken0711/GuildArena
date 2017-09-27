@@ -27,23 +27,4 @@ export class MainSceneComponent implements OnInit {
     this.modeService.currentMode$.subscribe((newMode) => this.currentMode = newMode);
   }
 
-  startFight(): void {
-    const p1 = new PlayerModel('Player 1', [
-      new CharacterModel(CharacterClass.WARRIOR),
-      new CharacterModel(CharacterClass.MAGE),
-      new CharacterModel(CharacterClass.PRIEST),
-      new CharacterModel(CharacterClass.HUNTER),
-      new CharacterModel(CharacterClass.WIZARD)
-    ]);
-    const p2 = new PlayerModel('Player 2', [
-      new CharacterModel(CharacterClass.PALADIN),
-      new CharacterModel(CharacterClass.ROGUE),
-      new CharacterModel(CharacterClass.HUNTER),
-      new CharacterModel(CharacterClass.WIZARD),
-      new CharacterModel(CharacterClass.PRIEST)
-    ]);
-    this.currentFight = new FightModel(p1, p2);
-    this.modeService.updateMode(Mode.FIGHT);
-  }
-
 }
