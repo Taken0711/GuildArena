@@ -1,5 +1,5 @@
 import {ReplaySubject} from "rxjs/ReplaySubject";
-import {CharacterClassModel} from "../CharacterClassModel";
+import {CharacterClassModel} from "../classes/CharacterClassModel";
 
 export class CharacterModel {
 

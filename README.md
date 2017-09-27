@@ -12,6 +12,7 @@
 * Resolve ExpressionChanged error on current playing character (fight service ? Is it really that ?)
 
 ### UI
+* Unselectable text
 * Increase font size in class tooltip
 * Center mddialog title and button
 * Figure out the message on the snack bar (and the 's or not)
