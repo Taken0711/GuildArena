@@ -24,6 +24,10 @@ export class CharacterModel {
     this.id = Math.random() * 1e32;
   }
 
+  public getSpells() {
+    return this.clazz.spells;
+  }
+
   public resetToFight(): void {
     this.hp = this.clazz.stats.hp;
     this.turnSpeed = 0;

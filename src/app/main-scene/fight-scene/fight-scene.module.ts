@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FightSceneComponent} from './fight-scene.component';
 import {
+  MdButtonModule,
   MdCardModule, MdDialog, MdDialogModule, MdGridListModule, MdListModule, MdProgressBarModule,
   MdProgressSpinnerModule, MdSnackBar, MdSnackBarModule, MdTooltipModule
 } from '@angular/material';
@@ -19,7 +20,8 @@ import { WinnerDialogComponent } from './winner-dialog/winner-dialog.component';
     MdProgressBarModule,
     MdProgressSpinnerModule,
     MdSnackBarModule,
-    MdTooltipModule
+    MdTooltipModule,
+    MdButtonModule,
   ],
   declarations: [
     FightSceneComponent,
