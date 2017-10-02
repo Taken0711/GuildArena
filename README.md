@@ -25,6 +25,9 @@
 
 ## Changelog
 
+### v0.3 (WIP)
+* Spells
+
 ### v0.2
 * Different classes with different visual and stats
 * Team customization
