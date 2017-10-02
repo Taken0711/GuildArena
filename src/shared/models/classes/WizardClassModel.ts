@@ -8,6 +8,7 @@ export class WizardClassModel extends CharacterClassModel {
   constructor() {
     super('Wizard', CHARACTER_DESCRIPTION.WIZARD, 'Leaena', BASE_STATS.WIZARD);
     this.spells.push(new SpellModel('Fireball', 3));
+    this.spells.push(new SpellModel('Yolo', 5));
   }
 
 }

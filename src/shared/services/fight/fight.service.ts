@@ -3,12 +3,14 @@ import {CharacterModel} from '../../models/characters/CharacterModel';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {FightModel} from "../../models/FightModel";
 import {PlayerModel} from "../../models/PlayerModel";
+import {SpellModel} from "../../models/SpellModel";
 
 @Injectable()
 export class FightService {
 
   public currentAttackingCharacter$ = new ReplaySubject<CharacterModel>(1);
   public currentFightWinner$ = new ReplaySubject<PlayerModel>(1);
+  public currentSelectedSpell$ = new ReplaySubject<SpellModel>(1);
 
   private isFightFinished: boolean;
   private currentFight: FightModel;
@@ -30,6 +32,10 @@ export class FightService {
     this.currentFight = currentFight;
   }
 
+  public updateCurrentSelectedSpell(spell: SpellModel): void {
+    this.currentSelectedSpell$.next(spell);
+  }
+
   public getCurrentFight(): FightModel {
     return this.currentFight;
   }
@@ -46,6 +52,7 @@ export class FightService {
 
   private updateCurrentAttackingCharacter(attackingCharacter: CharacterModel): void {
     this.currentAttackingCharacter$.next(attackingCharacter);
+    this.currentSelectedSpell$.next(attackingCharacter.getSpells()[0]);
   }
 
   private checkFinished(): void {

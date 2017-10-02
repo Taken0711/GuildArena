@@ -10,6 +10,7 @@ import { TeamListComponent } from './team-list/team-list.component';
 import { FightCharactCardComponent } from './team-list/fight-charact-card/fight-charact-card.component';
 import {FightService} from '../../../shared/services/fight/fight.service';
 import { WinnerDialogComponent } from './winner-dialog/winner-dialog.component';
+import { FightSpellCardComponent } from './fight-spell-card/fight-spell-card.component';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { WinnerDialogComponent } from './winner-dialog/winner-dialog.component';
     FightSceneComponent,
     TeamListComponent,
     FightCharactCardComponent,
+    FightSpellCardComponent,
   ],
   exports: [
     FightSceneComponent

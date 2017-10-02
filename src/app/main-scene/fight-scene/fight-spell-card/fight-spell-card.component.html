@@ -1,0 +1,8 @@
+<div class="spell-icon-container" [ngStyle]="{'border-style': borderStyle}">
+  <img
+    class="spell-icon"
+    src="../../../../assets/img/spell/default.png"
+    mdTooltip="{{spell.name}}"
+    [mdTooltipPosition]="'above'"
+    (click)="selectSpell()"/>
+</div>

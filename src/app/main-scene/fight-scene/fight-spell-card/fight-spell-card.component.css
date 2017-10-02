@@ -1,0 +1,14 @@
+.spell-icon-container {
+  border: 5px solid darkred;
+  border-radius: 21px;
+  height: 72px;
+  width: 72px;
+}
+
+.spell-icon {
+  border: #373737 solid 1px;
+  border-radius: 15px;
+  height: 70px;
+  width: auto;
+  cursor: pointer;
+}
