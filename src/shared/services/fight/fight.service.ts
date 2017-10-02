@@ -4,13 +4,14 @@ import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {FightModel} from "../../models/FightModel";
 import {PlayerModel} from "../../models/PlayerModel";
 import {SpellModel} from "../../models/SpellModel";
+import {BehaviorSubject} from "rxjs/BehaviorSubject";
 
 @Injectable()
 export class FightService {
 
   public currentAttackingCharacter$ = new ReplaySubject<CharacterModel>(1);
   public currentFightWinner$ = new ReplaySubject<PlayerModel>(1);
-  public currentSelectedSpell$ = new ReplaySubject<SpellModel>(1);
+  public currentSelectedSpell$ = new BehaviorSubject<SpellModel>(undefined);
 
   private isFightFinished: boolean;
   private currentFight: FightModel;
@@ -21,7 +22,7 @@ export class FightService {
   }
 
   public triggerAttack(target: CharacterModel): void {
-    this.currentFight.triggerAttack(target);
+    this.currentFight.triggerAttack(target, this.currentSelectedSpell$.getValue());
     this.checkFinished();
     if (this.currentFight.currentAttackingCharacter.turnSpeed === 0) {
       this.playATurn();

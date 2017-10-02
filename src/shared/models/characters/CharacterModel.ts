@@ -1,5 +1,6 @@
 import {ReplaySubject} from "rxjs/ReplaySubject";
 import {CharacterClassModel} from "../classes/CharacterClassModel";
+import {SpellModel} from "../SpellModel";
 
 export class CharacterModel {
 
@@ -50,4 +51,12 @@ export class CharacterModel {
     return this.clazz.stats.attack;
   }
 
+  public spell(spell: SpellModel): number {
+    this.turnSpeed = 0;
+    if (spell === undefined || !this.getSpells().includes(spell)) {
+      console.log('Undefined spell or not in the spell list.');
+      return this.basicAttack();
+    }
+    return spell.computeDamages(this.basicAttack());
+  }
 }

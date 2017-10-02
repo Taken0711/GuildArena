@@ -5,10 +5,16 @@
 ### General
 
 ### Class system
-* Spells
 
 ### Fight
+
+##### Spell
+* Charge system on spell
+* Cooldown
+* Effects
 * Aoe
+
+##### Misc
 * Resolve ExpressionChanged error on current playing character (fight service ? Is it really that ?)
 
 ### UI
