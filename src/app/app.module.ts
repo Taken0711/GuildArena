@@ -8,6 +8,7 @@ import {MainSceneModule} from './main-scene/main-scene.module';
 import {WinnerDialogComponent} from './main-scene/fight-scene/winner-dialog/winner-dialog.component';
 import {MdButtonModule, MdDialogModule} from '@angular/material';
 import {PipesModule} from "../shared/pipes/pipes.module";
+import {DirectivesModule} from "../shared/directives/directives.module";
 
 @NgModule({
   declarations: [
@@ -18,10 +19,11 @@ import {PipesModule} from "../shared/pipes/pipes.module";
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    PipesModule,
+    DirectivesModule,
     MainSceneModule,
     MdButtonModule,
     MdDialogModule,
-    PipesModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
