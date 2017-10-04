@@ -28,3 +28,7 @@
   font-weight: bold;
   color: white;
 }
+
+.spell-tooltip {
+  white-space: pre-line;
+}

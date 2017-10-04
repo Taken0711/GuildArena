@@ -3,12 +3,13 @@
     [ngClass]="{
       'spell-selected': selected,
       'spell-unavailable': isUnavailable()
-    }">
+    }"
+    mdTooltip="{{spell.name}}&nbsp;&nbsp;&nbsp;&nbsp;Cooldown:{{spell.cooldown}}&nbsp;&nbsp;&nbsp;&nbsp;Cost:{{spell.cost}}"
+    [mdTooltipClass]="'spell-tooltip'"
+    [mdTooltipPosition]="'above'"
+    (click)="selectSpell()">
   <img
     class="spell-icon unselectable"
-    src="../../../../assets/img/spell/default.png"
-    mdTooltip="{{spell.name}}"
-    [mdTooltipPosition]="'above'"
-    (click)="selectSpell()"/>
+    src="../../../../assets/img/spell/default.png">
   <span class="spell-cooldown-text unselectable" *ngIf="isInCooldown()">{{spell.turnCooldown}}</span>
 </div>
