@@ -1,8 +1,11 @@
 .spell-icon-container {
-  border: 5px solid darkred;
   border-radius: 21px;
   height: 72px;
   width: 72px;
+}
+
+.spell-selected {
+  border: 5px solid darkred;
 }
 
 .spell-icon {
