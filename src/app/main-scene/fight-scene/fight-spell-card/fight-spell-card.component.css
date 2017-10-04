@@ -9,7 +9,7 @@
 }
 
 .spell-cooldown {
-  filter: brightness(30%);
+  filter: brightness(25%);
 }
 
 .spell-icon {
@@ -18,4 +18,13 @@
   height: 70px;
   width: auto;
   cursor: pointer;
+}
+
+.spell-cooldown-text {
+  position: absolute;
+  top: 21px;
+  left: 45px;
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
 }

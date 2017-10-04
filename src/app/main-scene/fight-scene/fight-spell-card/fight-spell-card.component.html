@@ -3,7 +3,7 @@
     [ngClass]="{
       'spell-selected': isSelected(),
       'spell-cooldown': isInCooldown()
-      }">
+    }">
   <img
     class="spell-icon"
     src="../../../../assets/img/spell/default.png"
@@ -11,3 +11,4 @@
     [mdTooltipPosition]="'above'"
     (click)="selectSpell()"/>
 </div>
+<span class="spell-cooldown-text" *ngIf="isInCooldown()">{{spell.turnCooldown}}</span>
