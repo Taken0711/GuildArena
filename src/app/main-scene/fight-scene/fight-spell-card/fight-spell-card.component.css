@@ -9,9 +9,8 @@
   border: 5px solid darkred;
 }
 
-.spell-cooldown {
+.spell-unavailable > img {
   filter: brightness(25%);
-  cursor: pointer;
 }
 
 .spell-icon {
@@ -24,7 +23,7 @@
 .spell-cooldown-text {
   position: absolute;
   top: 21px;
-  left: 45px;
+  left: 36px;
   font-size: 50px;
   font-weight: bold;
   color: white;

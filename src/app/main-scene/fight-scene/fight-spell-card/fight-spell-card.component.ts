@@ -1,12 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {SpellModel} from "../../../../shared/models/SpellModel";
 import {FightService} from "../../../../shared/services/fight/fight.service";
-
-const enum SpellState {
-  AVAILABLE,
-  SELECTED,
-  COOLDOWN,
-}
+import {CharacterModel} from "../../../../shared/models/characters/CharacterModel";
 
 @Component({
   selector: 'app-fight-spell-card',
@@ -16,7 +11,9 @@ const enum SpellState {
 export class FightSpellCardComponent implements OnInit {
 
   @Input() public spell: SpellModel;
-  public state: SpellState = SpellState.AVAILABLE;
+  @Input() public caster: CharacterModel;
+
+  public selected: boolean;
 
   constructor(private fightService: FightService) { }
 
@@ -24,23 +21,19 @@ export class FightSpellCardComponent implements OnInit {
     // --- Events ---
     // Spell selection
     this.fightService.currentSelectedSpell$.subscribe(spell => {
-      if (spell === this.spell) {
-        this.state = SpellState.SELECTED;
-      } else {
-        this.state = SpellState.AVAILABLE;
-      }
+      this.selected = spell === this.spell;
     });
   }
 
   public selectSpell(): void {
-    if (this.isInCooldown()) {
+    if (this.isUnavailable()) {
       return;
     }
     this.fightService.updateCurrentSelectedSpell(this.spell);
   }
 
-  public isSelected(): boolean {
-    return this.state === SpellState.SELECTED;
+  public isUnavailable(): boolean {
+    return this.isInCooldown() || this.caster.charges < this.spell.cost;
   }
 
   public isInCooldown(): boolean {

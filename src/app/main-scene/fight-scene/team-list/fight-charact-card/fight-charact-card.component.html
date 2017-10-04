@@ -4,8 +4,14 @@
     (mouseenter)="target()"
     (mouseleave)="untarget()"
     (click)="getAttacked()">
+  <!-- CHARGES -->
+  <span class="character-charges">{{character.charges}}</span>
+  <!-- AVATAR -->
   <img src="../../../../../assets/img/character/avatar/{{character.clazz.name}}.png" class="character-avatar">
+
   <md-grid-list cols="2" rowHeight="fit" class="character-list">
+
+    <!-- NAME AND CLASS -->
     <md-grid-tile>
       <md-list class="no-padding no-margin">
         <md-list-item class="no-padding no-margin">
@@ -14,6 +20,9 @@
         </md-list-item>
       </md-list>
     </md-grid-tile>
+    <!-- END OF NAME AND CLASS -->
+
+    <!-- HP AND SPEED -->
     <md-grid-tile>
       <md-grid-list cols="1" class="stat-list" rowHeight="20px">
         <md-grid-tile>
@@ -36,5 +45,7 @@
         </md-grid-tile>
       </md-grid-list>
     </md-grid-tile>
+    <!-- END OF HP AND SPEED -->
+
   </md-grid-list>
 </div>

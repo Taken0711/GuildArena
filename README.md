@@ -9,9 +9,6 @@
 ### Fight
 
 ##### Spell
-* Make basic attack disappear (CharacterModel)
-* Charge system on spell
-* Cooldown
 * Effects
 * Aoe
 
@@ -19,6 +16,7 @@
 * Resolve ExpressionChanged error on current playing character (fight service ? Is it really that ?)
 
 ### UI
+* Bug cooldown and different size (look at absolute positioning)
 * Unselectable text
 * Increase font size in class tooltip
 * Center mddialog title and button

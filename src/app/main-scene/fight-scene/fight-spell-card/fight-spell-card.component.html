@@ -1,8 +1,8 @@
 <div
     class="spell-icon-container unselectable"
     [ngClass]="{
-      'spell-selected': isSelected(),
-      'spell-cooldown': isInCooldown()
+      'spell-selected': selected,
+      'spell-unavailable': isUnavailable()
     }">
   <img
     class="spell-icon unselectable"
@@ -10,5 +10,5 @@
     mdTooltip="{{spell.name}}"
     [mdTooltipPosition]="'above'"
     (click)="selectSpell()"/>
+  <span class="spell-cooldown-text unselectable" *ngIf="isInCooldown()">{{spell.turnCooldown}}</span>
 </div>
-<span class="spell-cooldown-text unselectable" *ngIf="isInCooldown()">{{spell.turnCooldown}}</span>

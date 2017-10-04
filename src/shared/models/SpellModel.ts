@@ -2,7 +2,8 @@ export class SpellModel {
 
   public turnCooldown = 0;
 
-  constructor(public readonly name: string, public readonly ratio: number, public readonly cooldown: number) {
+  constructor(public readonly name: string, public readonly ratio: number, public readonly cooldown: number,
+              public readonly cost: number) {
   }
 
   public castSpell(attack: number): number {
@@ -15,7 +16,7 @@ export class SpellModel {
   }
 
   public copy(): SpellModel {
-    return new SpellModel(this.name, this.ratio, this.cooldown);
+    return new SpellModel(this.name, this.ratio, this.cooldown, this.cost);
   }
 
 }

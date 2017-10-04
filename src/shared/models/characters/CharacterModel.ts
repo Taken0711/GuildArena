@@ -13,6 +13,7 @@ export class CharacterModel {
 
   public hp: number;
   public turnSpeed: number;
+  public charges: number;
   public death$: ReplaySubject<boolean>;
 
   private id: number;
@@ -32,6 +33,7 @@ export class CharacterModel {
   public resetToFight(): void {
     this.hp = this.clazz.stats.hp;
     this.turnSpeed = 0;
+    this.charges = 0;
     this.death$.next(false);
   }
 
@@ -46,21 +48,23 @@ export class CharacterModel {
     return this.hp <= 0;
   }
 
-  public basicAttack(): number {
-    this.turnSpeed = 0;
-    return this.clazz.stats.attack;
-  }
-
   public spell(spell: SpellModel): number {
-    this.turnSpeed = 0;
     if (spell === undefined || !this.spells.includes(spell)) {
       console.log('Undefined spell or not in the spell list.');
-      return this.basicAttack();
+      this.charges--;
+      return this.clazz.stats.attack;
     }
-    return spell.castSpell(this.basicAttack());
+    this.charges -= spell.cost;
+    return spell.castSpell(this.clazz.stats.attack);
   }
 
-  updateOnTurn() {
-    this.spells.forEach(spell => spell.decreaseCooldown())
+  public updateOnTurn(): void {
+    this.spells.forEach(spell => spell.decreaseCooldown());
+    if (this.charges < 3) {
+      // For charge addition (spells) make a delta variable
+      this.charges++;
+    }
+
   }
+
 }

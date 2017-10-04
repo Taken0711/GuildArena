@@ -45,4 +45,8 @@ export class FightSceneComponent implements OnInit {
   public selectSpell(newSpell: SpellModel): void {
     this.selectedSpell = newSpell;
   }
+
+  public endTurn(): void {
+    this.fightService.playATurn();
+  }
 }

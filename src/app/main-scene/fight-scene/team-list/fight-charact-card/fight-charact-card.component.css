@@ -41,3 +41,9 @@
   border: #373737 solid 1px;
   border-radius: 20px;
 }
+
+.character-charges {
+  font-weight: bold;
+  font-size: 25px;
+  margin-right: 14px;
+}

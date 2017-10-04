@@ -5,6 +5,7 @@ import {FightModel} from "../../models/FightModel";
 import {PlayerModel} from "../../models/PlayerModel";
 import {SpellModel} from "../../models/SpellModel";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
+import {isNullOrUndefined} from "util";
 
 @Injectable()
 export class FightService {
@@ -12,8 +13,6 @@ export class FightService {
   public currentAttackingCharacter$ = new ReplaySubject<CharacterModel>(1);
   public currentFightWinner$ = new ReplaySubject<PlayerModel>(1);
   public currentSelectedSpell$ = new BehaviorSubject<SpellModel>(undefined);
-
-  public triggerSpellCooldown$ = new ReplaySubject<SpellModel>(1);
 
   private isFightFinished: boolean;
   private currentFight: FightModel;
@@ -23,11 +22,13 @@ export class FightService {
     this.isFightFinished = true;
   }
 
+  public getAttackingCharacter(): CharacterModel {
+    return this.currentFight.currentAttackingCharacter;
+  }
+
   public triggerAttack(target: CharacterModel): void {
     this.currentFight.triggerAttack(target, this.currentSelectedSpell$.getValue());
-    // this.triggerSpellCooldown$.next(this.currentSelectedSpell$.getValue());
-    this.checkFinished();
-    if (this.currentFight.currentAttackingCharacter.turnSpeed === 0) {
+    if (this.getAttackingCharacter().charges === 0) {
       this.playATurn();
     }
   }
@@ -49,8 +50,11 @@ export class FightService {
     this.playATurn();
   }
 
-  private playATurn(): void {
+  public playATurn(): void {
     this.checkFinished();
+    if (this.getAttackingCharacter() !== undefined) {
+      this.getAttackingCharacter().turnSpeed = 0;
+    }
     this.updateCurrentAttackingCharacter(this.currentFight.playATurn());
   }
 
