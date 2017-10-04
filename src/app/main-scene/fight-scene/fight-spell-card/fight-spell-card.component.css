@@ -2,6 +2,7 @@
   border-radius: 21px;
   height: 72px;
   width: 72px;
+  cursor: pointer;
 }
 
 .spell-selected {
@@ -10,6 +11,7 @@
 
 .spell-cooldown {
   filter: brightness(25%);
+  cursor: pointer;
 }
 
 .spell-icon {
@@ -17,7 +19,6 @@
   border-radius: 15px;
   height: 70px;
   width: auto;
-  cursor: pointer;
 }
 
 .spell-cooldown-text {
