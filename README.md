@@ -9,6 +9,7 @@
 ### Fight
 
 ##### Spell
+* Make basic attack disappear (CharacterModel)
 * Charge system on spell
 * Cooldown
 * Effects

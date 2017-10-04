@@ -21,6 +21,8 @@ export class FightSpellCardComponent implements OnInit {
   constructor(private fightService: FightService) { }
 
   ngOnInit() {
+    // --- Events ---
+    // Spell selection
     this.fightService.currentSelectedSpell$.subscribe(spell => {
       if (spell === this.spell) {
         this.state = SpellState.SELECTED;
@@ -31,11 +33,18 @@ export class FightSpellCardComponent implements OnInit {
   }
 
   public selectSpell(): void {
+    if (this.isInCooldown()) {
+      return;
+    }
     this.fightService.updateCurrentSelectedSpell(this.spell);
   }
 
   public isSelected(): boolean {
     return this.state === SpellState.SELECTED;
+  }
+
+  public isInCooldown(): boolean {
+    return this.spell.turnCooldown > 0;
   }
 
 }

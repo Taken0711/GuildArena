@@ -13,6 +13,8 @@ export class FightService {
   public currentFightWinner$ = new ReplaySubject<PlayerModel>(1);
   public currentSelectedSpell$ = new BehaviorSubject<SpellModel>(undefined);
 
+  public triggerSpellCooldown$ = new ReplaySubject<SpellModel>(1);
+
   private isFightFinished: boolean;
   private currentFight: FightModel;
 
@@ -23,6 +25,7 @@ export class FightService {
 
   public triggerAttack(target: CharacterModel): void {
     this.currentFight.triggerAttack(target, this.currentSelectedSpell$.getValue());
+    // this.triggerSpellCooldown$.next(this.currentSelectedSpell$.getValue());
     this.checkFinished();
     if (this.currentFight.currentAttackingCharacter.turnSpeed === 0) {
       this.playATurn();
@@ -53,7 +56,7 @@ export class FightService {
 
   private updateCurrentAttackingCharacter(attackingCharacter: CharacterModel): void {
     this.currentAttackingCharacter$.next(attackingCharacter);
-    this.currentSelectedSpell$.next(attackingCharacter.getSpells()[0]);
+    this.currentSelectedSpell$.next(attackingCharacter.spells[0]);
   }
 
   private checkFinished(): void {

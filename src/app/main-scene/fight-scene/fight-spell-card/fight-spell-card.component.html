@@ -1,4 +1,9 @@
-<div class="spell-icon-container" [ngClass]="{'spell-selected': isSelected()}">
+<div
+    class="spell-icon-container"
+    [ngClass]="{
+      'spell-selected': isSelected(),
+      'spell-cooldown': isInCooldown()
+      }">
   <img
     class="spell-icon"
     src="../../../../assets/img/spell/default.png"

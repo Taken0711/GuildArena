@@ -8,6 +8,10 @@
   border: 5px solid darkred;
 }
 
+.spell-cooldown {
+  filter: brightness(30%);
+}
+
 .spell-icon {
   border: #373737 solid 1px;
   border-radius: 15px;

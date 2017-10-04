@@ -9,6 +9,8 @@ export class CharacterModel {
   public readonly name: string;
   public readonly clazz: CharacterClassModel;
 
+  public spells: SpellModel[] = [];
+
   public hp: number;
   public turnSpeed: number;
   public death$: ReplaySubject<boolean>;
@@ -20,13 +22,11 @@ export class CharacterModel {
     this.name = clazz.characterName;
     this.clazz = clazz;
 
+    this.clazz.spells.forEach(spell => this.spells.push(spell.copy()));
+
     this.death$ = new ReplaySubject<boolean>(1);
 
     this.id = Math.random() * 1e32;
-  }
-
-  public getSpells() {
-    return this.clazz.spells;
   }
 
   public resetToFight(): void {
@@ -53,10 +53,14 @@ export class CharacterModel {
 
   public spell(spell: SpellModel): number {
     this.turnSpeed = 0;
-    if (spell === undefined || !this.getSpells().includes(spell)) {
+    if (spell === undefined || !this.spells.includes(spell)) {
       console.log('Undefined spell or not in the spell list.');
       return this.basicAttack();
     }
-    return spell.computeDamages(this.basicAttack());
+    return spell.castSpell(this.basicAttack());
+  }
+
+  updateOnTurn() {
+    this.spells.forEach(spell => spell.decreaseCooldown())
   }
 }

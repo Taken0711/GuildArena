@@ -61,6 +61,7 @@ export class FightModel {
       });
     }
     this.currentAttackingCharacter = this.attacking.dequeue();
+    this.currentAttackingCharacter.updateOnTurn();
     return this.currentAttackingCharacter;
   }
 
