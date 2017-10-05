@@ -3,7 +3,7 @@ import {CharacterModel} from '../../models/characters/CharacterModel';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {FightModel} from "../../models/FightModel";
 import {PlayerModel} from "../../models/PlayerModel";
-import {SpellModel} from "../../models/SpellModel";
+import {SpellModel} from "../../models/spells/SpellModel";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {isNullOrUndefined} from "util";
 

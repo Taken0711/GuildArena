@@ -1,5 +1,5 @@
 import {CharacterStatsModel} from '../CharacterStatsModel';
-import {SpellModel} from "../SpellModel";
+import {SpellModel} from "../spells/SpellModel";
 
 export abstract class CharacterClassModel {
 

@@ -3,7 +3,7 @@ import {CharacterModel} from 'shared/models/characters/CharacterModel';
 import * as Collections from 'typescript-collections/dist/lib';
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {ReplaySubject} from "rxjs/ReplaySubject";
-import {SpellModel} from "./SpellModel";
+import {SpellModel} from "./spells/SpellModel";
 
 export class FightModel {
 
@@ -35,7 +35,7 @@ export class FightModel {
   }
 
   public triggerAttack(target: CharacterModel, spell: SpellModel): void {
-    target.takeDamages(this.currentAttackingCharacter.spell(spell));
+    this.currentAttackingCharacter.spell(spell, target);
     if (target.isDead()) {
       target.turnSpeed = 0;
     }

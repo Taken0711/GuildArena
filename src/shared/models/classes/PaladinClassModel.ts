@@ -1,15 +1,18 @@
 import {CharacterClassModel} from "./CharacterClassModel";
 import {BASE_STATS} from "../../constants/character-base-stats";
 import {CHARACTER_DESCRIPTION} from "../../constants/character-description";
-import {SpellModel} from "../SpellModel";
+import {SpellModel} from "../spells/SpellModel";
+import {JudgementSpell} from "../spells/paladin/JudgementSpell";
+import {HammerOfJusticeSpell} from "../spells/paladin/HammerOfJusticeSpell";
+import {DivineStormSpell} from "../spells/paladin/DivineStormSpell";
 
 export class PaladinClassModel extends CharacterClassModel {
 
   constructor() {
     super('Paladin', CHARACTER_DESCRIPTION.PALADIN, 'Inhora', BASE_STATS.PALADIN);
-    this.registerSpell(new SpellModel('Judgment', 1, 0, 1));
-    this.registerSpell(new SpellModel('Hammer of Justice', 2.5, 3, 1));
-    this.registerSpell(new SpellModel('Divine Storm', 5, 6, 3));
+    this.registerSpell(new JudgementSpell());
+    this.registerSpell(new HammerOfJusticeSpell());
+    this.registerSpell(new DivineStormSpell());
   }
 
 }

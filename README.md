@@ -1,5 +1,8 @@
 # GuildArenaClient
 
+## Bugs
+* Warrior bug on charge: selector stay on charge
+
 ## TODO
 
 ### General

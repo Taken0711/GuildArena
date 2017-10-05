@@ -4,7 +4,7 @@ import {FightService} from "../../../shared/services/fight/fight.service";
 import {MdDialog, MdSnackBar} from "@angular/material";
 import {WinnerDialogComponent} from "./winner-dialog/winner-dialog.component";
 import {CharacterModel} from "../../../shared/models/characters/CharacterModel";
-import {SpellModel} from "../../../shared/models/SpellModel";
+import {SpellModel} from "../../../shared/models/spells/SpellModel";
 
 
 @Component({

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {SpellModel} from "../../../../shared/models/SpellModel";
+import {SpellModel} from "../../../../shared/models/spells/SpellModel";
 import {FightService} from "../../../../shared/services/fight/fight.service";
 import {CharacterModel} from "../../../../shared/models/characters/CharacterModel";
 
