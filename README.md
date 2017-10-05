@@ -9,10 +9,12 @@
 ### Fight
 
 ##### Spell
+* Heal/revive
 * Effects
 * Aoe
 
 ##### Misc
+* Positioning system
 * Resolve ExpressionChanged error on current playing character (fight service ? Is it really that ?)
 
 ### UI
@@ -26,6 +28,7 @@
 
 ### v0.3 (WIP)
 * Spells
+* Charges system
 
 ### v0.2
 * Different classes with different visual and stats
