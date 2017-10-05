@@ -26,6 +26,9 @@
 
 ## Changelog
 
+### v0.4 (WIP)
+* Spell with effect, heal and revive
+
 ### v0.3
 * Spells
 * Charge system
