@@ -5,6 +5,7 @@ import {SpellModel} from "../spells/SpellModel";
 import {SmiteSpell} from "../spells/priest/SmiteSpell";
 import {CorruptSpell} from "../spells/priest/CorruptSpell";
 import {PainSpell} from "../spells/priest/PainSpell";
+import {BlessSpell} from "../spells/priest/BlessSpell";
 
 export class PriestClassModel extends CharacterClassModel {
 
@@ -12,6 +13,7 @@ export class PriestClassModel extends CharacterClassModel {
     super('Priest', CHARACTER_DESCRIPTION.PRIEST, 'Asharae', BASE_STATS.PRIEST);
     this.registerSpell(new SmiteSpell());
     this.registerSpell(new CorruptSpell());
+    this.registerSpell(new BlessSpell());
     this.registerSpell(new PainSpell());
   }
 

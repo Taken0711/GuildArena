@@ -21,6 +21,7 @@
 * Resolve ExpressionChanged error on current playing character (fight service ? Is it really that ?)
 
 ### UI
+* Change UI color: blue for attacking, red for target (dmg) and green for heal/revive target
 * Bug cooldown and different size (look at absolute positioning)
 * Unselectable text
 * Increase font size in class tooltip

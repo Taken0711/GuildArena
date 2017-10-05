@@ -41,6 +41,10 @@ export class CharacterModel {
     this.death$.next(false);
   }
 
+  public heal(amount: number): void {
+    this.hp = Math.min(this.hp + amount, this.getStats().hp);
+  }
+
   public takeDamages(damages: number): void {
     this.hp -= damages;
     if (this.isDead()) {
