@@ -1,7 +1,7 @@
 export const CharacterState = {
 
   IDLE: 'white',
-  ATTACK: 'lightgreen',
+  ATTACK: 'lightblue',
   TARGET: 'lightcoral',
   DEAD: 'lightgrey',
 
