@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {CharacterModel} from '../../../../../shared/models/characters/CharacterModel';
 import {FightService} from '../../../../../shared/services/fight/fight.service';
 import {CharacterState} from '../../../../../shared/constants/character-state';
+import {SpellType} from "../../../../../shared/constants/spell-type";
 
 @Component({
   selector: 'app-fight-charact-card',
@@ -12,6 +13,7 @@ export class FightCharactCardComponent implements OnInit {
 
   @Input() character: CharacterModel;
   public backgroundColor: string;
+  public currentSpellType: SpellType;
 
   constructor(private fightService: FightService) {
     this.changeState(CharacterState.IDLE);
@@ -35,24 +37,38 @@ export class FightCharactCardComponent implements OnInit {
         this.changeState(CharacterState.IDLE);
       }
     });
+    // Selected spell
+    this.fightService.currentSelectedSpell$.subscribe(spell => {
+      this.currentSpellType = spell.getType();
+      if (this.isTarget()) {
+        this.target()
+      }
+    });
     // --- End events ---
   }
 
   public getAttacked(): void {
-    if (this.isState(CharacterState.TARGET)) {
+    if (this.isTarget()) {
       this.fightService.triggerAttack(this.character);
     }
   }
 
 
   target(): void {
-    if (this.isState(CharacterState.IDLE)) {
-      this.changeState(CharacterState.TARGET);
+    if (this.isState(CharacterState.IDLE) || this.isTarget()) {
+      switch (this.currentSpellType) {
+        case SpellType.DAMAGE:
+          this.changeState(CharacterState.TARGET_DAMAGE);
+          break;
+        case SpellType.HEAL:
+          this.changeState(CharacterState.TARGET_HEAL);
+          break;
+      }
     }
   }
 
   untarget(): void {
-    if (this.isState(CharacterState.TARGET)) {
+    if (this.isTarget()) {
       this.changeState(CharacterState.IDLE);
     }
   }
@@ -63,6 +79,10 @@ export class FightCharactCardComponent implements OnInit {
 
   private isState(stateColor: string): boolean {
     return this.backgroundColor === stateColor;
+  }
+
+  private isTarget(): boolean {
+    return this.isState(CharacterState.TARGET_DAMAGE) || this.isState(CharacterState.TARGET_HEAL);
   }
 
 }

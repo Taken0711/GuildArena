@@ -1,5 +1,6 @@
 import {CharacterModel} from '../characters/CharacterModel';
 import {Castable} from './Castable';
+import {SpellType} from "../../constants/spell-type";
 
 export class SpellModel {
 
@@ -24,6 +25,10 @@ export class SpellModel {
 
   public decreaseCooldown(): void {
     this.turnCooldown--;
+  }
+
+  public getType(): SpellType {
+    return this.castableChilds[0].getType();
   }
 
   public copy(): SpellModel {
