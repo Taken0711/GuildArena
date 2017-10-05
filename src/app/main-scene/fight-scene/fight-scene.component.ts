@@ -3,6 +3,8 @@ import {FightModel} from '../../../shared/models/FightModel';
 import {FightService} from "../../../shared/services/fight/fight.service";
 import {MdDialog, MdSnackBar} from "@angular/material";
 import {WinnerDialogComponent} from "./winner-dialog/winner-dialog.component";
+import {CharacterModel} from "../../../shared/models/characters/CharacterModel";
+import {SpellModel} from "../../../shared/models/SpellModel";
 
 
 @Component({
@@ -13,6 +15,8 @@ import {WinnerDialogComponent} from "./winner-dialog/winner-dialog.component";
 export class FightSceneComponent implements OnInit {
 
   public currentFight: FightModel;
+  public currentAttacking: CharacterModel;
+  public selectedSpell: SpellModel;
 
   constructor(private fightService: FightService, private snackBar: MdSnackBar, private dialog: MdDialog) {
     this.currentFight = this.fightService.getCurrentFight();
@@ -29,6 +33,7 @@ export class FightSceneComponent implements OnInit {
     });
     // Someone's turn
     this.fightService.currentAttackingCharacter$.subscribe(character => {
+      this.currentAttacking = character;
       this.snackBar.open(`${character.name}'s turn !`, undefined, {
         'duration': 1996
       });
@@ -37,4 +42,11 @@ export class FightSceneComponent implements OnInit {
     this.fightService.startFight();
   }
 
+  public selectSpell(newSpell: SpellModel): void {
+    this.selectedSpell = newSpell;
+  }
+
+  public endTurn(): void {
+    this.fightService.playATurn();
+  }
 }

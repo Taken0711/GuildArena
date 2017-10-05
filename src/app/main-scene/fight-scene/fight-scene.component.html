@@ -7,3 +7,16 @@
     <app-team-list [player]="currentFight.player2"></app-team-list>
   </md-grid-tile>
 </md-grid-list>
+<div class="state-bar">
+  <md-grid-list style="width: 40%" cols="5" rowHeight="100px">
+    <md-grid-tile *ngFor="let spell of currentAttacking.spells">
+      <app-fight-spell-card [spell]="spell" [caster]="currentAttacking"></app-fight-spell-card>
+    </md-grid-tile>
+  </md-grid-list>
+  <button
+      md-raised-button
+      class="end-turn-button"
+      color="primary"
+      (click)="endTurn()">
+    End turn</button>
+</div>

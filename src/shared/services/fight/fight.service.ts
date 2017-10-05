@@ -3,12 +3,16 @@ import {CharacterModel} from '../../models/characters/CharacterModel';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {FightModel} from "../../models/FightModel";
 import {PlayerModel} from "../../models/PlayerModel";
+import {SpellModel} from "../../models/SpellModel";
+import {BehaviorSubject} from "rxjs/BehaviorSubject";
+import {isNullOrUndefined} from "util";
 
 @Injectable()
 export class FightService {
 
   public currentAttackingCharacter$ = new ReplaySubject<CharacterModel>(1);
   public currentFightWinner$ = new ReplaySubject<PlayerModel>(1);
+  public currentSelectedSpell$ = new BehaviorSubject<SpellModel>(undefined);
 
   private isFightFinished: boolean;
   private currentFight: FightModel;
@@ -18,16 +22,23 @@ export class FightService {
     this.isFightFinished = true;
   }
 
+  public getAttackingCharacter(): CharacterModel {
+    return this.currentFight.currentAttackingCharacter;
+  }
+
   public triggerAttack(target: CharacterModel): void {
-    this.currentFight.triggerAttack(target);
-    this.checkFinished();
-    if (this.currentFight.currentAttackingCharacter.turnSpeed === 0) {
+    this.currentFight.triggerAttack(target, this.currentSelectedSpell$.getValue());
+    if (this.getAttackingCharacter().charges === 0) {
       this.playATurn();
     }
   }
 
   public updateCurrentFight(currentFight: FightModel): void {
     this.currentFight = currentFight;
+  }
+
+  public updateCurrentSelectedSpell(spell: SpellModel): void {
+    this.currentSelectedSpell$.next(spell);
   }
 
   public getCurrentFight(): FightModel {
@@ -39,13 +50,17 @@ export class FightService {
     this.playATurn();
   }
 
-  private playATurn(): void {
+  public playATurn(): void {
     this.checkFinished();
+    if (this.getAttackingCharacter() !== undefined) {
+      this.getAttackingCharacter().turnSpeed = 0;
+    }
     this.updateCurrentAttackingCharacter(this.currentFight.playATurn());
   }
 
   private updateCurrentAttackingCharacter(attackingCharacter: CharacterModel): void {
     this.currentAttackingCharacter$.next(attackingCharacter);
+    this.currentSelectedSpell$.next(attackingCharacter.spells[0]);
   }
 
   private checkFinished(): void {

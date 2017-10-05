@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CharacterModel} from "../../../shared/models/characters/CharacterModel";
-import {CharacterClassModel} from "../../../shared/models/CharacterClassModel";
+import {CharacterClassModel} from "../../../shared/models/classes/CharacterClassModel";
 import {PlayerModel} from "../../../shared/models/PlayerModel";
 import {CharacterClass} from "../../../shared/constants/character-class";
 import {FightService} from "../../../shared/services/fight/fight.service";

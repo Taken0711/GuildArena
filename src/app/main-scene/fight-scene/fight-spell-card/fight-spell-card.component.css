@@ -1,0 +1,34 @@
+.spell-icon-container {
+  border-radius: 21px;
+  height: 72px;
+  width: 72px;
+  cursor: pointer;
+}
+
+.spell-selected {
+  border: 5px solid darkred;
+}
+
+.spell-unavailable > img {
+  filter: brightness(25%);
+}
+
+.spell-icon {
+  border: #373737 solid 1px;
+  border-radius: 15px;
+  height: 70px;
+  width: auto;
+}
+
+.spell-cooldown-text {
+  position: absolute;
+  top: 21px;
+  left: 36px;
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+}
+
+.spell-tooltip {
+  white-space: pre-line;
+}
