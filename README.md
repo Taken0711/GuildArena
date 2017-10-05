@@ -26,9 +26,9 @@
 
 ## Changelog
 
-### v0.3 (WIP)
+### v0.3
 * Spells
-* Charges system
+* Charge system
 
 ### v0.2
 * Different classes with different visual and stats
