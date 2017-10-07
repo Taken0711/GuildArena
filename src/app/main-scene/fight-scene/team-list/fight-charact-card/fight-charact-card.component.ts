@@ -14,6 +14,7 @@ export class FightCharactCardComponent implements OnInit {
   @Input() character: CharacterModel;
   public backgroundColor: string;
   public currentSpellType: SpellType;
+  public attacking: boolean;
 
   constructor(private fightService: FightService) {
     this.changeState(CharacterState.IDLE);
@@ -33,8 +34,10 @@ export class FightCharactCardComponent implements OnInit {
     this.fightService.currentAttackingCharacter$.subscribe(c => {
       if (c === this.character) {
         this.changeState(CharacterState.ATTACK);
+        this.attacking = true;
       } else if (this.isState(CharacterState.ATTACK)) {
         this.changeState(CharacterState.IDLE);
+        this.attacking = false;
       }
     });
     // Selected spell
@@ -55,21 +58,23 @@ export class FightCharactCardComponent implements OnInit {
 
 
   target(): void {
-    if (this.isState(CharacterState.IDLE) || this.isTarget()) {
-      switch (this.currentSpellType) {
-        case SpellType.DAMAGE:
-          this.changeState(CharacterState.TARGET_DAMAGE);
-          break;
-        case SpellType.HEAL:
-          this.changeState(CharacterState.TARGET_HEAL);
-          break;
-      }
+    switch (this.currentSpellType) {
+      case SpellType.DAMAGE:
+        this.changeState(CharacterState.TARGET_DAMAGE);
+        break;
+      case SpellType.HEAL:
+        this.changeState(CharacterState.TARGET_HEAL);
+        break;
     }
   }
 
   untarget(): void {
     if (this.isTarget()) {
-      this.changeState(CharacterState.IDLE);
+      if (this.attacking) {
+        this.changeState(CharacterState.ATTACK);
+      } else {
+        this.changeState(CharacterState.IDLE);
+      }
     }
   }
 

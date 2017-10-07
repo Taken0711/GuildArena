@@ -2,6 +2,7 @@
 
 ## Bugs
 * Warrior bug on charge: selector stay on charge
+* Character can revive !!
 
 ## TODO
 
@@ -13,7 +14,7 @@
 
 ##### Spell
 * Revive
-* Self-effect
+* Concentrate
 * Aoe
 
 ##### Misc

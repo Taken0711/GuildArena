@@ -10,6 +10,6 @@
     (click)="selectSpell()">
   <img
     class="spell-icon unselectable"
-    src="../../../../assets/img/spell/default.png">
+    src="../../../../assets/img/spell/{{spell.name}}.jpg">
   <span class="spell-cooldown-text unselectable" *ngIf="isInCooldown()">{{spell.turnCooldown}}</span>
 </div>
