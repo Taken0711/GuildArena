@@ -31,6 +31,7 @@ export class FightService {
     if (this.getAttackingCharacter().charges === 0) {
       this.playATurn();
     } else {
+      this.checkFinished();
       this.updateCurrentSelectedSpell(this.currentFight.currentAttackingCharacter.spells[0]);
     }
   }
