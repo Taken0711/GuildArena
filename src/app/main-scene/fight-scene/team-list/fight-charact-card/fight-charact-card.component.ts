@@ -35,7 +35,7 @@ export class FightCharactCardComponent implements OnInit {
       if (c === this.character) {
         this.changeState(CharacterState.ATTACK);
         this.attacking = true;
-      } else if (this.isState(CharacterState.ATTACK)) {
+      } else if (this.attacking) {
         this.changeState(CharacterState.IDLE);
         this.attacking = false;
       }
@@ -58,7 +58,8 @@ export class FightCharactCardComponent implements OnInit {
 
 
   target(): void {
-    if (this.isState(CharacterState.DEAD)) {
+    if (this.isState(CharacterState.DEAD) ||
+        (this.fightService.getSelectedSpell().isSelf() && this.fightService.getAttackingCharacter() !== this.character)) {
       return;
     }
     switch (this.currentSpellType) {

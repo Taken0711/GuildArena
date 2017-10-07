@@ -26,6 +26,10 @@ export class FightService {
     return this.currentFight.currentAttackingCharacter;
   }
 
+  public getSelectedSpell(): SpellModel {
+    return this.currentSelectedSpell$.getValue();
+  }
+
   public triggerAttack(target: CharacterModel): void {
     this.currentFight.triggerAttack(target, this.currentSelectedSpell$.getValue());
     if (this.getAttackingCharacter().charges === 0) {
@@ -43,6 +47,7 @@ export class FightService {
   public updateCurrentSelectedSpell(spell: SpellModel): void {
     this.currentSelectedSpell$.next(spell);
   }
+
 
   public getCurrentFight(): FightModel {
     return this.currentFight;

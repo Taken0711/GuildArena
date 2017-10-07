@@ -9,7 +9,11 @@ export class SpellModel {
   public turnCooldown = 0;
 
   constructor(public readonly name: string, public readonly cooldown: number,
-              public readonly cost: number) {
+              public readonly cost: number, public readonly self: boolean) {
+  }
+
+  public isSelf(): boolean {
+    return this.self;
   }
 
   public registerCastableChild(castable: Castable) {
@@ -32,7 +36,7 @@ export class SpellModel {
   }
 
   public copy(): SpellModel {
-    const res = new SpellModel(this.name, this.cooldown, this.cost);
+    const res = new SpellModel(this.name, this.cooldown, this.cost, this.self);
     res.castableChilds = this.castableChilds;
     return res;
   }

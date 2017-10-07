@@ -4,7 +4,7 @@ import {DamageSpell} from '../DamageSpell';
 export class MutilateSpell extends SpellModel {
 
   constructor() {
-    super('Mutilate', 0, 1);
+    super('Mutilate', 0, 1, false);
     this.registerCastableChild(new DamageSpell(1));
   }
 

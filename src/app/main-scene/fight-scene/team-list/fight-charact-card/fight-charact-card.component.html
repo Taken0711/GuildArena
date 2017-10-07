@@ -53,7 +53,7 @@
         <md-grid-tile
             *ngFor="let effect of character.effects"
             md-tooltip="{{effect.name}}">
-          <img src="../../../../../assets/img/spell/default.png" class="effect-icon">
+          <img src="../../../../../assets/img/spell/effect/{{effect.name}}.jpg" class="effect-icon">
           <span class="effect-cooldown">{{effect.remainingTurn}}</span>
         </md-grid-tile>
       </md-grid-list>
