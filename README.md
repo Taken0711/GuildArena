@@ -12,6 +12,7 @@
 
 ##### Spell
 * Revive
+* Slow
 * Concentrate
 * Aoe
 
