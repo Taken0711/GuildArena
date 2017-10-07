@@ -58,8 +58,14 @@ export class FightCharactCardComponent implements OnInit {
 
 
   target(): void {
+    if (this.isState(CharacterState.DEAD)) {
+      return;
+    }
     switch (this.currentSpellType) {
       case SpellType.DAMAGE:
+        if (this.attacking) {
+          return;
+        }
         this.changeState(CharacterState.TARGET_DAMAGE);
         break;
       case SpellType.HEAL:

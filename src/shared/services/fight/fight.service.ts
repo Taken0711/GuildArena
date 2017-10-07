@@ -30,6 +30,8 @@ export class FightService {
     this.currentFight.triggerAttack(target, this.currentSelectedSpell$.getValue());
     if (this.getAttackingCharacter().charges === 0) {
       this.playATurn();
+    } else {
+      this.updateCurrentSelectedSpell(this.currentFight.currentAttackingCharacter.spells[0]);
     }
   }
 

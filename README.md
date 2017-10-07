@@ -1,8 +1,6 @@
 # GuildArenaClient
 
 ## Bugs
-* Warrior bug on charge: selector stay on charge
-* Character can revive !!
 
 ## TODO
 
@@ -22,7 +20,6 @@
 * Resolve ExpressionChanged error on current playing character (fight service ? Is it really that ?)
 
 ### UI
-* Spell icon
 * Bug cooldown and different size (look at absolute positioning)
 * Unselectable text
 * Increase font size in class tooltip
