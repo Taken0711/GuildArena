@@ -9,21 +9,21 @@
   <!-- AVATAR -->
   <img src="../../../../../assets/img/character/avatar/{{character.clazz.name}}.png" class="character-avatar">
 
-  <md-grid-list cols="2" rowHeight="fit" class="character-list">
+  <md-grid-list cols="3" rowHeight="30px" class="character-list">
 
     <!-- NAME AND CLASS -->
-    <md-grid-tile>
+    <md-grid-tile [rowspan]="3" [colspan]="1">
       <md-list class="no-padding no-margin">
         <md-list-item class="no-padding no-margin">
-          <h4 md-line class="unselectable">{{character.name}}</h4>
-          <p md-line md-tooltip="{{character.clazz.description}}" class="unselectable">{{character.clazz.name}}</p>
+          <h4 md-line class="unselectable character-name">{{character.name}}</h4>
+          <p md-line md-tooltip="{{character.clazz.description}}" class="unselectable character-class">{{character.clazz.name}}</p>
         </md-list-item>
       </md-list>
     </md-grid-tile>
     <!-- END OF NAME AND CLASS -->
 
     <!-- HP AND SPEED -->
-    <md-grid-tile>
+    <md-grid-tile [rowspan]="2" [colspan]="2">
       <md-grid-list cols="1" class="stat-list" rowHeight="20px">
         <md-grid-tile>
           <md-progress-bar
@@ -46,6 +46,19 @@
       </md-grid-list>
     </md-grid-tile>
     <!-- END OF HP AND SPEED -->
+
+    <!-- ACTIVE EFFECTS -->
+    <md-grid-tile [colspan]="2">
+      <md-grid-list cols="7" rowHeight="30px" class="max-width effect-list">
+        <md-grid-tile
+            *ngFor="let effect of character.effects"
+            md-tooltip="{{effect.name}}">
+          <img src="../../../../../assets/img/spell/default.png" class="effect-icon">
+          <span class="effect-cooldown">{{effect.remainingTurn}}</span>
+        </md-grid-tile>
+      </md-grid-list>
+    </md-grid-tile>
+    <!-- END OF ACTIVE EFFECTS -->
 
   </md-grid-list>
 </div>
