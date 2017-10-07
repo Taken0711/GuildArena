@@ -1,6 +1,7 @@
 import {ReplaySubject} from "rxjs/ReplaySubject";
 import {CharacterClassModel} from "../classes/CharacterClassModel";
 import {SpellModel} from "../spells/SpellModel";
+import {EffectModel} from "../spells/EffectModel";
 
 export class CharacterModel {
 
@@ -14,6 +15,7 @@ export class CharacterModel {
   public hp: number;
   public turnSpeed: number;
   public charges: number;
+  public effects: EffectModel[] = [];
   public death$: ReplaySubject<boolean>;
 
   private id: number;
@@ -66,13 +68,24 @@ export class CharacterModel {
     spell.castSpell(this, target);
   }
 
+  public addEffect(effect: EffectModel) {
+    this.effects.push(effect);
+  }
+
+  public removeEffect(effect: EffectModel) {
+    const index = this.effects.indexOf(effect);
+    if (index > -1) {
+      this.effects.splice(index, 1);
+    }
+  }
+
   public updateOnTurn(): void {
     this.spells.forEach(spell => spell.decreaseCooldown());
+    this.effects.forEach(effect => effect.apply());
+
     if (this.charges < 3) {
-      // For charge addition (spells) make a delta variable
       this.charges++;
     }
-
   }
 
 }
