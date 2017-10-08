@@ -1,0 +1,25 @@
+name;class;cost;cooldown;damage_ratio;damage;heal_ratio;heal;self;damage_on_cost;damage_on_cooldown
+Smite;priest;1;0;1;8,0;0;0,0;0;8,0;
+Sunfire Burst;wizard;3;5;4,2;58,8;0;0,0;0;19,6;11,76
+Charge;warrior;0;3;0,6;4,2;0;0,0;0;;1,4
+Powerful Shooting;hunter;2;6;5;50,0;0;0,0;0;25,0;8,33333333333
+Eviscerate;rogue;2;6;6;42,0;0;0,0;0;21,0;7,0
+Divine Storm;paladin;3;6;5;40,0;0;0,0;0;13,3333333333;6,66666666667
+Fire Blast;wizard;1;0;1;14,0;0;0,0;0;14,0;
+Pain;priest;3;7;8;64,0;0;0,0;0;21,3333333333;9,14285714286
+Double Shot;hunter;1;3;1,8;18,0;0;0,0;0;18,0;6,0
+Distant Shooting;hunter;1;0;1;10,0;0;0,0;0;10,0;
+Expelliarmus;mage;1;0;1;14,0;0;0,0;0;14,0;
+Judgement;paladin;1;0;1;8,0;0;0,0;0;8,0;
+Concentrate;common;1;5;0;0;0;0;1;0,0;0,0
+Mutilate;rogue;1;0;1;7,0;0;0,0;0;7,0;
+Sectum Sempra;mage;1;3;1,8;25,2;0;0,0;0;25,2;8,4
+Backstab;rogue;1;2;2;14,0;0;0,0;0;14,0;7,0
+Hammer of Justice;paladin;1;3;2,5;20,0;0;0,0;0;20,0;6,66666666667
+Bless;priest;1;2;0;0,0;4;32,0;0;0,0;0,0
+Divine Touch;paladin;1;3;0;0,0;3;24,0;0;0,0;0,0
+Fire Ball;wizard;1;3;1,8;25,2;0;0,0;0;25,2;8,4
+Avada Kedavra;mage;3;5;4,2;58,8;0;0,0;0;19,6;11,76
+Mortal Strike;warrior;2;4;3;21,0;0;0,0;0;10,5;5,25
+Slam;warrior;1;0;1;7,0;0;0,0;0;7,0;
+Corrupt;priest;1;3;1,8;14,4;0;0,0;0;14,4;4,8
