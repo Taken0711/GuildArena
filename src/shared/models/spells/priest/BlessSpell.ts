@@ -5,7 +5,7 @@ export class BlessSpell extends SpellModel {
 
   constructor() {
     super('Bless', 2, 1, false);
-    this.registerCastableChild(new HealSpell(4));
+    this.registerCastableChild(new HealSpell(7));
   }
 
 }

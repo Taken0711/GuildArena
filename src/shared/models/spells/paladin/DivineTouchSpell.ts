@@ -6,7 +6,7 @@ export class DivineTouchSpell extends SpellModel {
 
   constructor() {
     super('Divine Touch', 3, 1, false);
-    this.registerCastableChild(new HealSpell(3));
+    this.registerCastableChild(new HealSpell(5));
   }
 
 }
