@@ -15,6 +15,7 @@ export class FightCharactCardComponent implements OnInit {
   public backgroundColor: string;
   public currentSpellType: SpellType;
   public attacking: boolean;
+  public targeted = false;
 
   constructor(private fightService: FightService) {
     this.changeState(CharacterState.IDLE);
@@ -35,8 +36,12 @@ export class FightCharactCardComponent implements OnInit {
       if (c === this.character) {
         this.changeState(CharacterState.ATTACK);
         this.attacking = true;
-      } else if (this.attacking) {
-        this.changeState(CharacterState.IDLE);
+      } else {
+        if (this.targeted) {
+          this.target();
+        } else if (this.attacking) {
+          this.changeState(CharacterState.IDLE);
+        }
         this.attacking = false;
       }
     });
@@ -44,7 +49,7 @@ export class FightCharactCardComponent implements OnInit {
     this.fightService.currentSelectedSpell$.subscribe(spell => {
       this.currentSpellType = spell.getType();
       if (this.isTarget()) {
-        this.target()
+        this.target();
       }
     });
     // --- End events ---
@@ -62,6 +67,7 @@ export class FightCharactCardComponent implements OnInit {
         (this.fightService.getSelectedSpell().isSelf() && this.fightService.getAttackingCharacter() !== this.character)) {
       return;
     }
+    this.targeted = true;
     switch (this.currentSpellType) {
       case SpellType.DAMAGE:
         if (this.attacking) {
@@ -76,6 +82,7 @@ export class FightCharactCardComponent implements OnInit {
   }
 
   untarget(): void {
+    this.targeted = false;
     if (this.isTarget()) {
       if (this.attacking) {
         this.changeState(CharacterState.ATTACK);

@@ -1,7 +1,6 @@
 # GuildArenaClient
 
 ## Bugs
-* Target is not updated when a self attacking spell is cast (1v1 mage)
 
 ## TODO
 
@@ -14,7 +13,7 @@
 ##### Spell
 * Revive
 * Slow
-* Concentrate
+* Concentrate (damage modifier)
 * Aoe
 
 ##### Misc

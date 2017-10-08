@@ -81,7 +81,10 @@ export class CharacterModel {
 
   public updateOnTurn(): void {
     this.spells.forEach(spell => spell.decreaseCooldown());
-    this.effects.forEach(effect => effect.apply());
+    // Tmp variable because for-each break if an effect is removed
+    const toApply: EffectModel[] = [];
+    this.effects.forEach(e => toApply.push(e));
+    toApply.forEach(effect => effect.apply());
 
     if (this.charges < 3) {
       this.charges++;
