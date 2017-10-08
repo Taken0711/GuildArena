@@ -5,7 +5,7 @@ export class MortalStrikeSpell extends SpellModel {
 
   constructor() {
     super('Mortal Strike', 4, 2, false);
-    this.registerCastableChild(new DamageSpell(3));
+    this.registerCastableChild(new DamageSpell(4));
   }
 
 }

@@ -6,8 +6,8 @@ export class FireBallSpell extends SpellModel {
 
   constructor() {
     super('Fire Ball', 3, 1, false);
-    this.registerCastableChild(new DamageSpell(1.8));
-    this.registerCastableChild(new BurnedEffect(2, 1));
+    this.registerCastableChild(new DamageSpell(2.5));
+    this.registerCastableChild(new BurnedEffect(3, 1));
   }
 
 }

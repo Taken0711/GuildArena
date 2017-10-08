@@ -5,7 +5,7 @@ export class DivineStormSpell extends SpellModel {
 
   constructor() {
     super('Divine Storm', 6, 3, false);
-    this.registerCastableChild(new DamageSpell(5));
+    this.registerCastableChild(new DamageSpell(7));
   }
 
 }
