@@ -11,7 +11,7 @@ export abstract class EffectModel implements Castable {
               public readonly probability: number) { }
 
   public cast(caster: CharacterModel, target: CharacterModel): void {
-    if (Math.random() < 1 - this.probability) {
+    if (target.isDead() || Math.random() < 1 - this.probability) {
       return;
     }
     const copy = this.copy();
