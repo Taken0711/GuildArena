@@ -50,6 +50,9 @@ export class CharacterModel {
   public takeDamages(damages: number): void {
     this.hp -= damages;
     if (this.isDead()) {
+      this.turnSpeed = 0;
+      this.charges = 0;
+      this.effects = [];
       this.death$.next(true);
     }
   }

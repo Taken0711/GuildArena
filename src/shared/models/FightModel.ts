@@ -36,9 +36,6 @@ export class FightModel {
 
   public triggerAttack(target: CharacterModel, spell: SpellModel): void {
     this.currentAttackingCharacter.spell(spell, target);
-    if (target.isDead()) {
-      target.turnSpeed = 0;
-    }
   }
 
   public disclaimer(): string {
