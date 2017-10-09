@@ -33,7 +33,7 @@ export class TeamSelectionSceneComponent implements OnInit {
     if (this.currentSelectingPlayer.team.length >= 5) {
       return;
     }
-    this.currentSelectingPlayer.team.push(new CharacterModel(clazz));
+    this.currentSelectingPlayer.team.push(new CharacterModel(clazz, this.currentSelectingPlayer));
   }
 
   public reset(): void {

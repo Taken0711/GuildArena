@@ -9,21 +9,28 @@ export class SpellModel {
   public turnCooldown = 0;
 
   constructor(public readonly name: string, public readonly cooldown: number,
-              public readonly cost: number, public readonly self: boolean) {
+              public readonly cost: number, public readonly self: boolean,
+              public readonly aoe: boolean) {
   }
 
   public isSelf(): boolean {
     return this.self;
   }
 
+  public isAoe(): boolean {
+    return this.aoe;
+  }
+
   public registerCastableChild(castable: Castable) {
     this.castableChilds.push(castable);
   }
 
-  public castSpell(caster: CharacterModel, target: CharacterModel): void {
+  public castSpell(caster: CharacterModel, targets: CharacterModel[]): void {
     this.turnCooldown = this.cooldown;
-    for (const castable of this.castableChilds) {
-      castable.cast(caster, target);
+    for (const target of targets) {
+      for (const castable of this.castableChilds) {
+        castable.cast(caster, target);
+      }
     }
   }
 
@@ -36,7 +43,7 @@ export class SpellModel {
   }
 
   public copy(): SpellModel {
-    const res = new SpellModel(this.name, this.cooldown, this.cost, this.self);
+    const res = new SpellModel(this.name, this.cooldown, this.cost, this.self, this.aoe);
     res.castableChilds = this.castableChilds;
     return res;
   }

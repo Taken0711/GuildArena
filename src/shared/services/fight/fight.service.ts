@@ -13,6 +13,7 @@ export class FightService {
   public currentAttackingCharacter$ = new ReplaySubject<CharacterModel>(1);
   public currentFightWinner$ = new ReplaySubject<PlayerModel>(1);
   public currentSelectedSpell$ = new BehaviorSubject<SpellModel>(undefined);
+  public currentTargetedCharacter$ = new ReplaySubject<CharacterModel>(1);
 
   private isFightFinished: boolean;
   private currentFight: FightModel;
@@ -31,7 +32,12 @@ export class FightService {
   }
 
   public triggerAttack(target: CharacterModel): void {
-    this.currentFight.triggerAttack(target, this.currentSelectedSpell$.getValue());
+    const currSpell = this.currentSelectedSpell$.getValue();
+    if (currSpell.aoe) {
+      this.currentFight.triggerAttack(target.player.team, this.currentSelectedSpell$.getValue());
+    } else {
+      this.currentFight.triggerAttack([target], this.currentSelectedSpell$.getValue());
+    }
     if (this.getAttackingCharacter().charges === 0) {
       this.playATurn();
     } else {
@@ -46,6 +52,10 @@ export class FightService {
 
   public updateCurrentSelectedSpell(spell: SpellModel): void {
     this.currentSelectedSpell$.next(spell);
+  }
+
+  public updateCurrentTargetedCharacter(target: CharacterModel): void {
+    this.currentTargetedCharacter$.next(target);
   }
 
 

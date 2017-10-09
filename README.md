@@ -14,7 +14,6 @@
 * Revive
 * Slow
 * Concentrate (damage modifier)
-* Aoe
 
 ##### Misc
 * Positioning system
@@ -30,6 +29,7 @@
 
 ### v0.4 (WIP)
 * Spell with effect, heal and revive
+* Aoe (damage and heal)
 
 ### v0.3
 * Spells

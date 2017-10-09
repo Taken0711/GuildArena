@@ -1,10 +1,10 @@
 import {SpellModel} from '../SpellModel';
 import {DamageSpell} from '../DamageSpell';
 
-export class BackstabSpell extends SpellModel {
+export class ArmageddonSpell extends SpellModel {
 
   constructor() {
-    super('Backstab', 2, 1, false, false);
+    super('Armageddon', 5, 2, false, true);
     this.registerCastableChild(new DamageSpell(2));
   }
 

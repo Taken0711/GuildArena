@@ -13,6 +13,10 @@ export class PlayerModel {
     }
   }
 
+  public isPartOfTeam(character: CharacterModel) {
+    return this.team.includes(character);
+  }
+
   public hasLost(): boolean  {
     for (const c of this.team) {
       if (!c.isDead()) {

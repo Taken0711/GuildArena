@@ -5,6 +5,7 @@ import {SpellModel} from "../spells/SpellModel";
 import {FireBlastSpell} from "../spells/wizard/FireBlastSpell";
 import {FireBallSpell} from "../spells/wizard/FireBallSpell";
 import {SunfireBurstSpell} from "../spells/wizard/SunfireBurstSpell";
+import {ArmageddonSpell} from "../spells/wizard/ArmageddonSpell";
 
 export class WizardClassModel extends CharacterClassModel {
 
@@ -12,6 +13,7 @@ export class WizardClassModel extends CharacterClassModel {
     super('Wizard', CHARACTER_DESCRIPTION.WIZARD, 'Leaena', BASE_STATS.WIZARD);
     this.registerSpell(new FireBlastSpell());
     this.registerSpell(new FireBallSpell());
+    this.registerSpell(new ArmageddonSpell());
     this.registerSpell(new SunfireBurstSpell());
   }
 

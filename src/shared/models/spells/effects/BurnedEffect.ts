@@ -4,7 +4,7 @@ import {SpellType} from "../../../constants/spell-type";
 export class BurnedEffect extends EffectModel {
 
   constructor(duration: number, probability: number) {
-    super('Burned', 0.2, duration, probability);
+    super('Burned', 0.8, duration, probability);
   }
 
   public hookApply() {

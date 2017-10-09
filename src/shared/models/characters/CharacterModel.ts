@@ -2,6 +2,7 @@ import {ReplaySubject} from "rxjs/ReplaySubject";
 import {CharacterClassModel} from "../classes/CharacterClassModel";
 import {SpellModel} from "../spells/SpellModel";
 import {EffectModel} from "../spells/EffectModel";
+import {PlayerModel} from "../PlayerModel";
 
 export class CharacterModel {
 
@@ -11,6 +12,7 @@ export class CharacterModel {
   public readonly clazz: CharacterClassModel;
 
   public spells: SpellModel[] = [];
+  public player: PlayerModel;
 
   public hp: number;
   public turnSpeed: number;
@@ -21,11 +23,12 @@ export class CharacterModel {
   private id: number;
 
 
-  constructor(clazz: CharacterClassModel) {
+  constructor(clazz: CharacterClassModel, player: PlayerModel) {
     this.name = clazz.characterName;
     this.clazz = clazz;
 
     this.clazz.spells.forEach(spell => this.spells.push(spell.copy()));
+    this.player = player;
 
     this.death$ = new ReplaySubject<boolean>(1);
 
@@ -61,14 +64,14 @@ export class CharacterModel {
     return this.hp <= 0;
   }
 
-  public spell(spell: SpellModel, target: CharacterModel): void {
+  public spell(spell: SpellModel, targets: CharacterModel[]): void {
     if (spell === undefined || !this.spells.includes(spell)) {
       console.log('Undefined spell or not in the spell list.');
       this.charges--;
       return this.clazz.stats.attack;
     }
     this.charges -= spell.cost;
-    spell.castSpell(this, target);
+    spell.castSpell(this, targets);
   }
 
   public addEffect(effect: EffectModel) {

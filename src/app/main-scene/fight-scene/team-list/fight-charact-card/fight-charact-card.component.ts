@@ -52,6 +52,15 @@ export class FightCharactCardComponent implements OnInit {
         this.target();
       }
     });
+    // Targeted Character
+    this.fightService.currentTargetedCharacter$.subscribe(c => {
+      if (c === this.character || (this.fightService.currentSelectedSpell$.getValue().isAoe() && this.character.player.isPartOfTeam(c))) {
+        this.targetCallback();
+      } else {
+        this.untargetCallback();
+      }
+    });
+
     // --- End events ---
   }
 
@@ -67,6 +76,10 @@ export class FightCharactCardComponent implements OnInit {
         (this.fightService.getSelectedSpell().isSelf() && this.fightService.getAttackingCharacter() !== this.character)) {
       return;
     }
+    this.fightService.updateCurrentTargetedCharacter(this.character);
+  }
+
+  targetCallback(): void {
     this.targeted = true;
     switch (this.currentSpellType) {
       case SpellType.DAMAGE:
@@ -82,6 +95,10 @@ export class FightCharactCardComponent implements OnInit {
   }
 
   untarget(): void {
+    this.fightService.updateCurrentTargetedCharacter(undefined);
+  }
+
+  untargetCallback(): void {
     this.targeted = false;
     if (this.isTarget()) {
       if (this.attacking) {

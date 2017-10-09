@@ -34,8 +34,8 @@ export class FightModel {
     this.addPlayerToFight(player2);
   }
 
-  public triggerAttack(target: CharacterModel, spell: SpellModel): void {
-    this.currentAttackingCharacter.spell(spell, target);
+  public triggerAttack(targets: CharacterModel[], spell: SpellModel): void {
+    this.currentAttackingCharacter.spell(spell, targets);
   }
 
   public disclaimer(): string {

@@ -5,7 +5,7 @@ import {HealSpell} from "../HealSpell";
 export class DivineTouchSpell extends SpellModel {
 
   constructor() {
-    super('Divine Touch', 3, 1, false);
+    super('Divine Touch', 3, 1, false, false);
     this.registerCastableChild(new HealSpell(5));
   }
 
